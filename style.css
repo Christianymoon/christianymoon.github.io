@@ -1,0 +1,87 @@
+:root {
+  --back-color: #000000;
+}
+
+body {
+  background-color: var(--back-color);
+}
+
+/* navbar */
+
+.navbar {
+  background: var(--back-color);
+  color: white;
+
+} 
+
+.nav-link {
+  color: white !important;
+  padding: 30px;
+}  
+
+/* hero section */
+
+.hero-sup {
+  color: white;
+  font-size: 1.5em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.hero-icon {
+  font-size: 50px;
+  color: lawngreen;
+  padding-left: 1.5em;
+}
+
+.hero-inf {
+  color: white;
+  padding-bottom: 40px;
+
+}
+
+/* experience section */
+
+.exp-label {
+  color: black;
+  background: white;
+  padding: 10px;
+
+}
+
+.exp {
+  color: black;
+  padding: 40px;
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.exp-icons {
+  color: lawngreen;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.exp .row div {
+  height: 250px;
+  color: white;
+  font-size: 12px;
+}
+
+.atribution-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+
+
+/* Projects section */
+
+.projects-label {
+  background: white;
+  color: black;
+  padding: 10px;
+
+}
+
