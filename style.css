@@ -240,8 +240,9 @@ body {
 
 }
 
-.foot h6 {
+.foot a {
   font-family: Montserrat, sans-serif;
+  text-decoration: none;
 }
 
 .foot i {
