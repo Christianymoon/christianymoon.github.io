@@ -1,10 +1,22 @@
 :root {
   --back-color: black;
   --enfasis-color: aqua;
+  --font-color: white;
+  --foot-color: white;
+  --light-background-color: rgb(204, 204, 204);
+  --light-enfasis-color: grey;
+  --light-font-color: black;
+  --light-foot-color: black;
+
+
 }
 
 body {
   background-color: var(--back-color);
+}
+
+body.light-theme {
+  background-color: var(--light-background-color);
 }
 
 /* navbar */
@@ -12,32 +24,69 @@ body {
 .navbar {
   background: var(--back-color);
   color: white;
-} 
+}
+
+.main-svg .fil0 {
+  fill: white;
+  fill-rule: nonzero
+}
+
+.main-svg .fil0.black-mode {
+  fill: black;
+  fill-rule: nonzero
+}
+
+.navbar.light-theme {
+  background: var(--light-background-color);
+}
 
 .nav-link {
-  color: white !important;
+  color: var(--font-color) !important;
   padding: 30px;
   font-family: 'Open Sans', sans-serif;
-}  
+}
+
+.nav-link.light-theme {
+  color: var(--light-font-color) !important;
+}
+
+.change-theme-button {
+  padding: 10px;
+  margin: 20px;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.change-theme-button.black {
+  color: black;
+}
 
 /* hero section */
 
 .hero-sup {
-  color: white;
+  color: var(--font-color);
   font-size: 1.5em;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
+.hero-sup.light-theme {
+  color: var(--light-font-color)
+}
+
 .hero-sup img {
   opacity: 0.2;
   position: absolute;
-  /*width: 100%; */
   transition: all 0.5s ease-out;
 }
 
 .hero-sup:hover img {
   opacity: 0.1;
+}
+
+.hero-sup img.quit {
+  display: none;
 }
 
 .hero .row {
@@ -54,26 +103,43 @@ body {
   padding-left: 1.5em;
 }
 
+.hero-icon.light-theme {
+  color: var(--light-enfasis-color);
+}
+
 .hero-inf {
-  color: white;
+  color: var(--font-color);
   padding-bottom: 40px;
   font-family: Raleway, sans-serif;
+}
+
+.hero-inf.light-theme {
+  color: var(--light-font-color);
 }
 
 /* experience section */
 
 .exp-label {
-  color: black;
-  background: white;
+  color: var(--back-color);
+  background: var(--font-color);
   padding: 10px;
 
 }
 
+.exp-label.light-theme {
+  color: var(--font-color);
+  background: var(--light-font-color);
+}
+
 .exp {
-  color: black;
+  color: var(--back-color);
   padding: 40px;
   margin: 125px 0px;
   font-size: 10px;
+}
+
+.exp.light-theme {
+  color: var(--light-background-color);
 }
 
 .exp-icons {
@@ -82,12 +148,19 @@ body {
   padding: 10px;
 }
 
+.exp-icons.light-theme {
+  color: var(--light-enfasis-color);
+}
+
 .exp .row div {
-  /* height: 250px; */
-  color: white;
+  color: var(--font-color);
   font-size: 17px;
   font-family: Raleway, sans-serif;
   padding: 40px;
+}
+
+.exp .row div.light-theme {
+  color: var(--light-font-color);
 }
 
 .atribution-title {
@@ -100,21 +173,55 @@ body {
 /* Projects section */
 
 .projects-label {
-  background: white;
-  color: black;
+  background: var(--font-color);
+  color: var(--back-color);
   padding: 10px;
 
+}
+
+.projects-label.light-theme {
+  background: black;
+  color: white;
 }
 
 .projects {
   margin: 90px 0px;
 }
 
+.category-container {
+  padding: 20px;
+  margin-top: 20px;
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+.category-col {
+  color: var(--font-color);
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+
+.category-col.light-theme {
+  color: var(--light-font-color);
+}
+
+.category-col h3 {
+  font-size: 20px;
+}
+
+
+.category-description {
+  font-size: 15px;
+}
+
+
 .projects .column-proyect {
-  color: white;
-  /* height: 220px; */
+  color: var(--font-color);
   justify-content: space-between;
   transition: opacity 1s;
+}
+
+.projects .column-proyect.light-theme {
+  color: var(--light-font-color);
 }
 
 .column-proyect img {
@@ -122,6 +229,7 @@ body {
   height: 100%;
   display: block;
   transition: all 0.2s ease;
+  border-radius: 10px;
 }
 
 .column-proyect h4 {
@@ -134,13 +242,14 @@ body {
   padding: 10px 10px;
 }
 
-.more-proyects i {
+.more-projects a {
   font-size: 40px;
-}
-
-.more-proyects a {
   text-decoration: none;
   color: var(--enfasis-color);
+}
+
+.more-projects a.light-theme {
+  color: var(--light-enfasis-color);
 }
 
 .column-proyect {
@@ -155,7 +264,11 @@ body {
 
 .overlay .btn a {
   font-size: 2.5em;
-  color: white;
+  color: var(--font-color);
+}
+
+.overlay .btn a.light-theme {
+  color: var(--light-font-color)
 }
 
 .overlay p {
@@ -172,7 +285,7 @@ body {
 
 /*Contact section*/
 
-.contact {   
+.contact {
   padding: 10px;
   border-radius: 30px;
   margin: 180px 30px;
@@ -182,6 +295,10 @@ body {
   height: 180px;
   font-size: 18px;
   color: var(--enfasis-color);
+}
+
+.contactcol.light-theme {
+  color: var(--light-enfasis-color);
 }
 
 .contactcol i {
@@ -199,6 +316,10 @@ body {
 
 .contactcol .mail-icon a {
   color: var(--enfasis-color);
+}
+
+.contactcol .mail-icon a.light-theme {
+  color: var(--light-enfasis-color);
 }
 
 /* envelope transition */
@@ -228,6 +349,10 @@ body {
   background: var(--back-color);
 }
 
+.foot.light-theme {
+  background: var(--light-background-color);
+}
+
 .foot .row {
   height: auto;
   padding-bottom: 40px;
@@ -235,9 +360,13 @@ body {
 }
 
 .foot h5 {
-  color: white;
+  color: var(--foot-color);
   font-family: Montserrat, sans-serif;
 
+}
+
+.foot h5.light-theme {
+  color: var(--light-foot-color);
 }
 
 .foot a {
@@ -247,7 +376,11 @@ body {
 
 .foot i {
   font-size: 30px;
-  color: white;
+  color: var(--foot-color);
+}
+
+.foot i.light-theme {
+  color: var(--light-foot-color);
 }
 
 /* media querys */
