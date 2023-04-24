@@ -11,6 +11,11 @@
 
 }
 
+@font-face {
+  font-family: 'Anurati';
+  src: url('fonts/ANURATI-REGULAR.OTF') format('opentype');
+}
+
 body {
   background-color: var(--back-color);
 }
@@ -191,13 +196,20 @@ body.light-theme {
 .category-container {
   padding: 20px;
   margin-top: 20px;
-  font-family: 'Open Sans', 'sans-serif';
+
 }
 
 .category-col {
   color: var(--font-color);
   padding: 5px;
   margin: 10px 0px 10px 0px;
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+.category-col h2 {
+  font-family: 'Anurati', 'sans-serif';
+  letter-spacing: 10px;
+  font-size: 25px;
 }
 
 .category-col.light-theme {
@@ -383,6 +395,187 @@ body.light-theme {
   color: var(--light-foot-color);
 }
 
+
+/* blog section */
+
+.containter-blog-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.containter-blog-navbar i {
+  color: limegreen;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.containter-blog-navbar li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+  margin: 10px;
+}
+
+.containter-blog-navbar a {
+  text-decoration: none;
+  color: lime;
+  transition: all 0.5s ease;
+}
+
+.containter-blog-navbar a:hover {
+  color: white;
+  box-shadow: inset 0px 0px  40px 5px limegreen, 0px 0px 10px 5px limegreen;
+
+}
+
+.containter-blog-navbar i.black {
+  color: var(--light-font-color);
+}
+
+.containter-blog-navbar a.black {
+  color: var(--light-font-color);
+}
+
+.containter-blog-navbar a.black:hover {
+  color: limegreen;
+  box-shadow: inset 0px 0px  40px 5px var(--light-enfasis-color), 0px 0px 10px 5px var(--light-enfasis-color);
+}
+
+
+.searcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchbar {
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin: 20px;
+  color: lime;
+  background-color: black;
+  border-color: lime;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+
+
+
+
+.super-container {
+  border: 1px lime solid; 
+  border-radius: 30px;
+  font-family: 'Courier Prime', monospace;
+}
+
+.super-container .category-col h4 {
+  font-family: 'Anurati', sans-serif;
+  letter-spacing: 10px;
+}
+
+.super-container .row {
+  border-radius: 30px;
+  background-color: var(--back-color);
+  margin-top: 30px;
+
+}
+
+.super-container .block-blog {
+
+  color: limegreen;
+  padding: 10px;
+  margin-top: 30px;
+  padding: 30px;
+  
+}
+
+.image-blog img {
+  padding-right: 30px;
+  padding-bottom: 20px;
+  float: left;
+}
+
+.super-container.black {
+  border: none;
+}
+
+.super-container .category-col h4.black {
+  color: var(--light-font-color);
+}
+
+.super-container .row.black {
+  background-color: var(--light-enfasis-color)
+}
+
+.super-container .block-blog.black {
+  color: var(--light-font-color);
+}
+
+/* BLOG TEMPLATE SECTION */
+
+.blog-content {
+  display: flex;
+}
+
+.sidebar h1 {
+  color: var(--font-color);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.sidebar {
+  width: 25%;
+  margin-right: 20px;
+}
+
+
+.image {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.main-content {
+  width: 75%;
+}
+
+.main-content h1 {
+  color: lime;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+}
+
+.main-content h2{
+  color: var(--enfasis-color);
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.main-content img {
+  padding: 10px;
+}
+
+.main-content p {
+  color: white;
+}
+
+
+
+
+
+
 /* media querys */
 
 @media screen and (max-width: 767px) {
@@ -396,3 +589,40 @@ body.light-theme {
     display: none;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .image-blog {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .containter-blog-navbar li{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+  }
+}
+
+/* BLOG TEMPLATE MEDIA QUERYS */
+
+@media screen and (max-width: 767px) {
+  .blog-content {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: auto;
+    text-align: center;
+  }
+  .main-content {
+    width: auto;
+    margin: 40px;
+  }
+
+  .image {
+  flex-direction: column;
+  }
+
+}
+
+
