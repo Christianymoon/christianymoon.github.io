@@ -17,7 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
   <!-- stylesheet  -->
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/style.css">
+
   <!-- <link rel="stylesheet" href="../pages-style.css"> -->
   <!-- metadata -->
   <meta charset="utf-8">
@@ -91,10 +92,10 @@
           id="navbar-toggler">
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="../index.html#hero">Sobre Mí</a>
-            <a class="nav-link" href="/pages/blog.html">Blog</a>
-            <a class="nav-link" href="../index.html#exp">Experiencia</a>
-            <a class="nav-link" href="../index.html#projects">Proyectos</a>
-            <a class="nav-link" href="../index.html#contact">Contacto</a>
+            <a class="nav-link" href="/blog/blog.html">Blog</a>
+            <a class="nav-link" href="/index.html#exp">Experiencia</a>
+            <a class="nav-link" href="/index.html#projects">Proyectos</a>
+            <a class="nav-link" href="/index.html#contact">Contacto</a>
           </div>
         </div>
       </div>
@@ -114,36 +115,37 @@
     <div class="containter-blog-navbar">
       <nav>
         <ul>
-          <li><i class="bi bi-fingerprint"></i><a href="#">Cybersecurity</a></li>
-          <li><i class="bi bi-code-slash"></i><a href="#">Programming</a></li>
-          <li><i class="bi bi-box"></i><a href="#">HackTheBox</a></li>
-          <li><i class="bi bi-bug"></i><a href="#">Exploits</a></li>
-          <li><i class="bi bi-robot"></i><a href="#">IA</a></li>
-          <li><i class="bi bi-youtube"></i><a href="#">Videos</a></li>
+          <li><i class="bi bi-fingerprint"></i><a href="#cybersecurity">Cybersecurity</a></li>
+          <li><i class="bi bi-code-slash"></i><a href="#programming">Programming</a></li>
+          <li><i class="bi bi-box"></i><a href="#hackthebox">HackTheBox</a></li>
+          <li><i class="bi bi-bug"></i><a href="#exploits">Exploits</a></li>
+          <li><i class="bi bi-robot"></i><a href="#artificial-intelligence">IA</a></li>
+          <li><i class="bi bi-youtube"></i><a href="#videos">Videos</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="searcher">
       <div class="container searcher">
-          <input id="searchbar" onkeyup="searchengine()" type="text" name="Search", placeholder="Buscar">
+        <input id="searchbar" onkeyup="searchengine()" type="text" name="Search" , placeholder="Buscar">
       </div>
     </div>
 
     <div class="super-container container">
-      <div class="cybersecurity-blog">
+      <div id=cybersecurity" class="cybersecurity-blog">
         <div class="category-container container-fluid text-center">
           <div class="category-col">
             <h4>CYBERSECURITY</h4>
           </div>
         </div>
-  
         <div class="row">
           <div class="block-blog">
-          <div class="image-blog">
-            <img src="https://placehold.co/200x200" alt="Place" srcset="">
-          </div>
-            <p>Explicaremos que es y en que consiste la tecnica de tabla arcoiris (Rainbow Cracking Hash) para crackear o descifrar hashes MD5, SHA y cualquier tipo, mas eficiente y rapido.</p>
+            <div class="image-blog">
+              <img src="https://placehold.co/200x200" alt="Place" srcset="">
+            </div>
+            <h1>Rainbow Table Attack</h1>
+            <p>Explicaremos que es y en que consiste la tecnica de tabla arcoiris (Rainbow Cracking Hash) para crackear
+              o descifrar hashes MD5, SHA1, SHA2 etc, explicaremos que es un hash y algunas vulnerabilidades de estos.</p>
             <a href="../blog-content/rainbow-attack/rainbow-cracking-hash.html" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
@@ -152,12 +154,15 @@
             <div class="image-blog">
               <img src="https://placehold.co/200x200" alt="Place" srcset="">
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi, praesentium quos?</p>
+            <h1>Phishing</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et
+              aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi,
+              praesentium quos?</p>
             <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
       </div>
-      <div class="programming-blog">
+      <div id="programming"class="programming-blog">
         <div class="category-container container-fluid text-center">
           <div class="category-col">
             <h4>PROGRAMMING</h4>
@@ -165,10 +170,13 @@
         </div>
         <div class="row">
           <div class="block-blog">
-          <div class="image-blog">
-            <img src="https://placehold.co/200x200" alt="Place" srcset="">
-          </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi enim rerum voluptate modi et obcaecati distinctio suscipit ipsam at laborum. In totam voluptatibus doloremque dolorem numquam perferendis, dolores maxime magni.</p>
+            <div class="image-blog">
+              <img src="https://placehold.co/200x200" alt="Place" srcset="">
+            </div>
+            <h1>Python vs C++</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi enim rerum voluptate modi et obcaecati
+              distinctio suscipit ipsam at laborum. In totam voluptatibus doloremque dolorem numquam perferendis,
+              dolores maxime magni.</p>
             <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
@@ -177,12 +185,15 @@
             <div class="image-blog">
               <img src="https://placehold.co/200x200" alt="Place" srcset="">
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi, praesentium quos?</p>
+            <h1>Heap y Stack</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et
+              aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi,
+              praesentium quos?</p>
             <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
       </div>
-      <div class="Hackthebox-blog">
+      <div id="hackthebox" class="Hackthebox-blog">
         <div class="category-container container-fluid text-center">
           <div class="category-col">
             <h4>HACKTHEBOX WRITEUPS</h4>
@@ -190,10 +201,16 @@
         </div>
         <div class="row">
           <div class="block-blog">
-          <div class="image-blog">
-            <img src="https://placehold.co/200x200" alt="Place" srcset="">
-          </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita, voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod. Vero, assumenda cumque.</p><br><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.</p>
+            <div class="image-blog">
+              <img src="https://placehold.co/200x200" alt="Place" srcset="">
+            </div>
+            <h1>Hackthebox - Precious walkthrought</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
+              voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
+              Vero, assumenda cumque.</p><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
+              eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
+            </p>
             <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
         </div>
@@ -203,7 +220,7 @@
 
 
       </div>
-      <div class="tutorial-blog">
+      <div id="artificial-intelligence" class="artificial-intelligence">
         <div class="category-container container-fluid text-center">
           <div class="category-col">
             <h4>ARTIFICIAL INTELLIGENCE</h4>
@@ -211,19 +228,24 @@
         </div>
         <div class="row">
           <div class="block-blog">
-          <div class="image-blog">
-            <img src="https://placehold.co/200x200" alt="Place" srcset="">
-          </div>
-            <h1>Title</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita, voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod. Vero, assumenda cumque.</p><br><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.</p>
+            <div class="image-blog">
+              <img src="https://placehold.co/200x200" alt="Place" srcset="">
+            </div>
+            <h1>ChatGPT</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
+              voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
+              Vero, assumenda cumque.</p><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
+              eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
+            </p>
             <a href="http://google.com" target="_blank" rel="noopener noreferrer">Tutorial</a>
           </div>
         </div>
       </div>
-      <div class="Videos-blog">
+      <div id="exploits" class="Exploits">
         <div class="category-container container-fluid text-center">
           <div class="category-col">
-            <h4>VIDEOS</h4>
+            <h4>EXPLOITS</h4>
           </div>
         </div>
         <div class="row">
@@ -234,10 +256,9 @@
         </div>
       </div>
     </div>
-      
+
     <script src="../search.js"></script>
     <script src="../blog_theme.js"></script>
-    <!-- <script src="../change-theme.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"></script>

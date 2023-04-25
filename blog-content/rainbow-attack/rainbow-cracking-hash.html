@@ -15,6 +15,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
 	<!-- stylesheet  -->
 	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/blog.css">
 	<!-- metadata -->
 	<meta charset="utf-8">
 	<meta name="author" content="Christian Vergara">
@@ -22,7 +23,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-	<title>Christian Vergara Ethical Hacker | Software Developer</title>
+	<title>Cracking hashes with Rainbow Table</title>
 </head>
 
 <body>
@@ -62,7 +63,8 @@
 									d="M3547.38 506.93l0 0 35.72 -71.14 35.42 71.14 45.41 0 -80.83 -161.66 -121.09 242.19 44.8 0 20.59 -40.57 19.98 -39.96zm136.54 40.27l-44.81 0 0 0 19.98 40.26 45.11 0 -20.28 -40.26z" />
 								<polygon id="_8" class="fil0"
 									points="4007.94,345.27 4007.94,490.28 3846.88,345.27 3846.88,406.42 4048.2,587.46 4048.2,587.16 4048.2,586.85 4048.2,345.27 " />
-								<polygon id="_9" class="fil0" points="4298.05,345.27 4419.15,587.46 4441.85,542.35 4343.16,345.27 " />
+								<polygon id="_9" class="fil0"
+									points="4298.05,345.27 4419.15,587.46 4441.85,542.35 4343.16,345.27 " />
 								<path id="_10" class="fil0"
 									d="M4605.12 584.13l0 3.33 161.36 0 0 -40.57 -121.1 0 -40.26 37.24zm0 -238.86l40.26 40.57 121.1 0 0 -40.57 -161.36 0zm0 101.11l0 40.27 40.26 0 121.1 0 0 -40.27 -121.1 0 -40.26 0z" />
 								<path id="_11" class="fil0"
@@ -112,58 +114,111 @@
 				<div class="image">
 					<img src="./rainbow_table.jpg" alt="rainbow-table-example" srcset="">
 				</div>
-				<p>Cuando nos registramos en una página web, en una aplicación móvil, la aplicación de tu proveedor financiero,
-					cualquier servicio que requiera un correo y una contraseña tiene que ser almacenado en algún lugar, las
-					empresas tienen distintos métodos de guardar tu información, y una de ellas, probablemente la más usada hasta
-					ahora seria guardar toda esa información sensible en una base de datos, ¿Qué es una base de datos? Una base de
-					datos es una tabla de registros en la cual es almacenada tu información. Las contraseñas por lo general no son
-					guardadas como tu mismo las escribes en tu formulario es decir en texto plano, si no que se implementa un tipo
-					de cifrado computado para que el usuario común sea casi imposible descifrarlo, sin embargo, una computadora si
-					tiene la posibilidad de hacerlo, y los cibercriminales saben cómo hacerlo, y entre una de sus técnicas se
+				<p>Cuando nos registramos en una página web, en una aplicación móvil, la aplicación de tu proveedor
+					financiero,
+					cualquier servicio que requiera un correo y una contraseña tiene que ser almacenado en algún lugar,
+					las
+					empresas tienen distintos métodos de guardar tu información, y una de ellas, probablemente la más
+					usada hasta
+					ahora seria guardar toda esa información sensible en una base de datos, ¿Qué es una base de datos?
+					Una base de
+					datos es una tabla de registros en la cual es almacenada tu información. Las contraseñas por lo
+					general no son
+					guardadas como tu mismo las escribes en tu formulario es decir en texto plano, si no que se
+					implementa un tipo
+					de cifrado computado para que el usuario común sea casi imposible descifrarlo, sin embargo, una
+					computadora si
+					tiene la posibilidad de hacerlo, y los cibercriminales saben cómo hacerlo, y entre una de sus
+					técnicas se
 					encuentra la técnica rainbow crackng hash basada en tabla.
 				</p>
 				<h2 id="que-es-un-hash">¿Que es un Hash?</h2>
-				<p>Un hash en un algoritmo matemático que computa una serie de datos para transformarlo en una nueva cadena de
-					caracteres, cabe recalcar que esta longitud de caracteres dependiendo del hash o método de encriptación es
-					siempre fija, es decir que tanto encriptar el carácter ‘a’ como encriptar toda una tesis dará el mismo
-					resultado o longitud de caracteres, ahora bien, existen muchos métodos de encriptación, algunas mas inseguras
+				<p>Un hash en un algoritmo matemático que computa una serie de datos para transformarlo en una nueva
+					cadena de
+					caracteres, cabe recalcar que esta longitud de caracteres dependiendo del hash o método de
+					encriptación es
+					siempre fija, es decir que tanto encriptar el carácter ‘a’ como encriptar toda una tesis dará el
+					mismo
+					resultado o longitud de caracteres, ahora bien, existen muchos métodos de encriptación, algunas mas
+					inseguras
 					que otras, sin embargo en los sistemas informáticos es más común oír de las siguientes:
 				<ul>
 					<li>
 						<p>MD5</p>
 					</li>
-					<p>Este método de encriptación de 128 bits es utilizado ampliamente para verificar la autenticidad de un
-						archivo es decir que crea una firma digital para evitar la piratería de archivos modificados o con virus
-						informáticos, aunque este método de encriptación tenga 2^128 de posibles combinaciones, se ha encontrado
-						varios fallos de hash collision esto significa que 2 entradas pueden generar el mismo hash y crear un fallo
-						de seguridad, lo que ha llevado a ser fácilmente vulnerable a ataques de fuerza bruta, como el birthday
-						bruteforce attack.
+					<p>Este método de encriptación de 128 bits es utilizado ampliamente para verificar la autenticidad
+						de un
+						archivo es decir que crea una firma digital para evitar la piratería de archivos modificados o
+						con virus
+						informáticos, aunque este método de encriptación tenga 2^128 de posibles combinaciones, se ha
+						encontrado
+						varios fallos de hash collision esto significa que 2 entradas pueden generar el mismo hash y
+						crear un fallo
+						de seguridad, lo que ha llevado a ser fácilmente vulnerable a ataques de probabilidad, como el
+						birthday
+						attack.
 					</p>
 					<img src="Surjection.png" alt="hash collision wikipedia" srcset="">
 					<p>
-						Podemos calcular fácilmente la firma criptográfica de un archivo con la herramienta md5sum implementada en
+						Podemos calcular fácilmente la firma criptográfica de un archivo con la herramienta md5sum
+						implementada en
 						sistemas operativos Unix, tambien podemos crear un hash con un lenguaje de scripting.
 					</p>
 					<li>
-						<p>SHA2</p>
+						<p>SHA-1</p>
 					</li>
+					<p>SHA o Secure hash Algorithm es una serie de funciones criptográficas desarrolladas por la NSA
+						(National
+						Security Agency) y por la NIST, fueron pensadas para solucionar los problemas de colisión de
+						hash,
+						utilizando su capacidad de no reflexividad es decir que dada una cadena de bits, no es posible
+						tener
+						duplicaciones de salida, sin embargo, en la actualidad se han encontrado varias vulnerabilidades
+						que han
+						hecho que organizaciones dejaran de utilizarlo, en 2004 criptográficos de China han demostrado
+						comprometer
+						la función en 2^69 operaciones y en 2017 se logró crear la primera colisión de SHA1, el equipo
+						de
+						Google y CWI
+						Institute llamada <a href="http://shattered.io" target="_blank"
+							rel="noopener noreferrer">SHAttered</a>, la cual logro crear la colisión en 9 quintillones
+						de
+						cálculos SHA1, 100,000
+						veces más rápido que la paradoja del ataque birthday, SHA-1 a diferencia de MD5 es una función
+						criptográfica de una longitud de 160 bits, aun asi su uso se recomienda cambiar por alternativas
+						mas seguras, como SHA-2 o SHA-3.</p>
+					<img src="https://www.poftut.com/wp-content/uploads/2019/10/img_5d96ab3757a99.png" alt="sha-1 example">
 					<li>
-						<p>SHA3</p>
+						<p>SHA-2</p>
 					</li>
+					<p>SHA-2 es un conjunto de funciones criptográficas desarrolladas por la NSA, (SHA-224, SHA-256,
+						SHA-384, SHA-512) las cuales tienen como longitud en bits cada función como su nombre lo indica
+						al final, es decir 224, 256, 384 y 512 bits, fueron pensadas para crear una opción más segura,
+						después de las colisiones de hash producidas por su predecesora SHA-1, actualmente SHA-2 y SHA-1
+						son las tecnologías mas usadas por las organizaciones, pese a que en SHA-1 se encontraron dichas
+						colisiones, aun no se ha llevado por completo el cambio de SHA-1 a SHA-2, sin embargo SHA-2 ya
+						esta implementada en un gran número de aplicaciones y protocolos como SSL, TTL, SSH, etc. además
+						se usan para verificar la autenticidad de los paquetes Debian de GNU/Linux entre otras
+						aplicaciones.</p>
 				</ul>
 
 				</p>
 				<h2 id="cracking-de-hash">Cracking de hash con Rainbow</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem nam assumenda laudantium
-					consequatur reiciendis dolor recusandae quidem, pariatur inventore, veniam minus porro, dolores laborum
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem nam assumenda
+					laudantium
+					consequatur reiciendis dolor recusandae quidem, pariatur inventore, veniam minus porro, dolores
+					laborum
 					aliquid fuga quisquam distinctio eum.</p>
 				<h2 id="otras-maneras">Otras maneras de crackear un hash</h2>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eveniet accusamus voluptates ipsum id
-					provident deleniti, libero earum laudantium ex totam harum, similique debitis quam sapiente porro, doloribus
+					provident deleniti, libero earum laudantium ex totam harum, similique debitis quam sapiente porro,
+					doloribus
 					laboriosam incidunt.</p>
 				<h2 id="mas-ataques">Mas ataques de fuerza bruta</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni alias earum consequuntur et asperiores est
-					explicabo aliquam corrupti sequi odit voluptatem voluptatibus adipisci ratione natus, hic perferendis
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni alias earum consequuntur et asperiores
+					est
+					explicabo aliquam corrupti sequi odit voluptatem voluptatibus adipisci ratione natus, hic
+					perferendis
 					repellendus quibusdam maxime.</p>
 			</div>
 		</div>
@@ -195,7 +250,8 @@
 					</div>
 					<div class="social-col col-sm-3 col-md-3">
 						<div class="instagram">
-							<a href="https://www.instagram.com/christianymoon/" target="_blank" rel="noopener noreferrer">
+							<a href="https://www.instagram.com/christianymoon/" target="_blank"
+								rel="noopener noreferrer">
 								<i class="bi bi-instagram"></i>
 								<h6>Instagram</h6>
 							</a>
@@ -203,7 +259,8 @@
 					</div>
 					<div class="social-col col-sm-3 col-md-3">
 						<div class="linkedin">
-							<a href="https://www.linkedin.com/in/christianymoon" target="_blank" rel="noopener noreferrer">
+							<a href="https://www.linkedin.com/in/christianymoon" target="_blank"
+								rel="noopener noreferrer">
 								<i class="bi bi-linkedin"></i>
 								<h6>Linkedin</h6>
 							</a>
