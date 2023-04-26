@@ -21,7 +21,7 @@
 	<meta name="author" content="Christian Vergara">
 	<meta name="description" content="Christian Vergara Desarrollador de software y practicante de Ethical Hacking">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<meta name="keywords" content="rainbow table attack, hash attack, hash, md5, sha-1, encriptacion, criptografia, que es rainbow table attack, ataque, ciberseguridad, ataque cumpleaños, birthday attack">
 
 	<title>Cracking hashes with Rainbow Table</title>
 </head>
@@ -63,8 +63,7 @@
 									d="M3547.38 506.93l0 0 35.72 -71.14 35.42 71.14 45.41 0 -80.83 -161.66 -121.09 242.19 44.8 0 20.59 -40.57 19.98 -39.96zm136.54 40.27l-44.81 0 0 0 19.98 40.26 45.11 0 -20.28 -40.26z" />
 								<polygon id="_8" class="fil0"
 									points="4007.94,345.27 4007.94,490.28 3846.88,345.27 3846.88,406.42 4048.2,587.46 4048.2,587.16 4048.2,586.85 4048.2,345.27 " />
-								<polygon id="_9" class="fil0"
-									points="4298.05,345.27 4419.15,587.46 4441.85,542.35 4343.16,345.27 " />
+								<polygon id="_9" class="fil0" points="4298.05,345.27 4419.15,587.46 4441.85,542.35 4343.16,345.27 " />
 								<path id="_10" class="fil0"
 									d="M4605.12 584.13l0 3.33 161.36 0 0 -40.57 -121.1 0 -40.26 37.24zm0 -238.86l40.26 40.57 121.1 0 0 -40.57 -161.36 0zm0 101.11l0 40.27 40.26 0 121.1 0 0 -40.27 -121.1 0 -40.26 0z" />
 								<path id="_11" class="fil0"
@@ -105,8 +104,9 @@
 				<ul>
 					<li><a href="#que-es-un-hash">¿Que es un Hash?</a></li>
 					<li><a href="#cracking-de-hash">Cracking de hash con Rainbow</a></li>
-					<li><a href="#otras-maneras">Otras maneras de crackear un hash</a></li>
-					<li><a href="#mas-ataques">Mas ataques de fuerza bruta</a></li>
+					<li><a href="#como mitigar un ataque rainbow attack">Mitigar un ataque Rainbow Table Attack</a></li>
+					<li><a href="#uso-de-hashes-en-autenticacion-de-contraseñas">Uso de hashes en sistemas de autenticacion</a>
+					</li>
 				</ul>
 			</div>
 			<div class="main-content">
@@ -180,8 +180,8 @@
 						la función en 2^69 operaciones y en 2017 se logró crear la primera colisión de SHA1, el equipo
 						de
 						Google y CWI
-						Institute llamada <a href="http://shattered.io" target="_blank"
-							rel="noopener noreferrer">SHAttered</a>, la cual logro crear la colisión en 9 quintillones
+						Institute llamada <a href="http://shattered.io" target="_blank" rel="noopener noreferrer">SHAttered</a>, la
+						cual logro crear la colisión en 9 quintillones
 						de
 						cálculos SHA1, 100,000
 						veces más rápido que la paradoja del ataque birthday, SHA-1 a diferencia de MD5 es una función
@@ -204,22 +204,100 @@
 
 				</p>
 				<h2 id="cracking-de-hash">Cracking de hash con Rainbow</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem nam assumenda
-					laudantium
-					consequatur reiciendis dolor recusandae quidem, pariatur inventore, veniam minus porro, dolores
-					laborum
-					aliquid fuga quisquam distinctio eum.</p>
-				<h2 id="otras-maneras">Otras maneras de crackear un hash</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eveniet accusamus voluptates ipsum id
-					provident deleniti, libero earum laudantium ex totam harum, similique debitis quam sapiente porro,
-					doloribus
-					laboriosam incidunt.</p>
-				<h2 id="mas-ataques">Mas ataques de fuerza bruta</h2>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni alias earum consequuntur et asperiores
-					est
-					explicabo aliquam corrupti sequi odit voluptatem voluptatibus adipisci ratione natus, hic
-					perferendis
-					repellendus quibusdam maxime.</p>
+				<p>Como pudimos observar un hash es un algoritmo computado matemáticamente para verificar firmas, o
+					huellas digitales, verificar la autenticidad de un archivo o en la mayoría de los casos, para
+					encriptar una contraseña en una base de datos, ahora bien, nosotros cuando insertamos una contraseña
+					en texto plano, ya sea al registrarnos en un servicio, o al iniciar sesión en un servicio online, lo
+					que sucede en el lado del servidor es que la contraseña introducida textualmente en el formulario,
+					se envía directamente al servidor, y este servidor lo que hace es comparar la contraseña introducida
+					a manera de hash con la de su base de datos, por supuesto tambien encriptada, y bien, si la
+					contraseña introducida produce el mismo hash que se genero al registrarte en dicho servicio,
+					entraras en tu cuenta exitosamente, ahora es comprensible porque los hashes no deben colisionar, ya
+					que si llegara a pasar podrías insertar otra contraseña que no sea la que inicialmente te
+					registraste y esto se llamaría colisión de hash, es como si otra persona pudiera desbloquear tus
+					datos por que tiene tu misma huella dactilar, es por eso que en muchas bases de datos para agregar
+					más seguridad a sus hashes, se aplica una técnica llamada salting que añade una pequeña diferencia
+					al hash para que en caso de que caiga en manos de un atacante sea mucho más difícil desencriptarlo.
+					<br><br>
+					Un ataque de rainbow table o tabla arcoiris, es una de las maneras en que los ciberdelincuentes o los hackers
+					éticos utilizan para desencriptar hashes, (con objetivos totalmente distintos claro), consiste en
+					una tabla de valores de hashes pre-computados, es decir que ya han sido calculadas con sus valores
+					correspondientes de caracteres, un atacante buscara en la tabla algún valor de hash que coincida con
+					el correspondiente y asi obtener su contraseña. Si el valor hash de la contraseña desconocida
+					coincide con uno de los valores hash de la tabla rainbow, puede determinar la contraseña
+					correspondiente.
+					<br><br>
+					En base a esto podemos determinar que una rainbow table puede descifrar contraseñas que sean mas
+					conocidas o que por lo menos estén dentro de su tabla precalculada es decir que es mucho más difícil
+					encontrar una coincidencia con una contraseña robusta que con una entrada de contraseña básica como
+					“1234” o “password” ya que estas en valor de hash podrían ser fácilmente vulnerables a ataques de
+					tabla arcoíris, podríamos decir en este punto que el valor de entrada de un hash determina la
+					dificultad de desencriptar el mismo.
+					A continuación, algunos sitios web de tabla arcoíris online donde podrías probar contraseñas:
+
+				<ul>
+					<li><a href="https://crackstation.net/" target="_blank" rel="noopener noreferrer">crackstation.net</a></li>
+					<li><a href="https://hashkiller.io/" target="_blank" rel="noopener noreferrer">hashkiller.io</a></li>
+					<li><a href="https://hashes.com/en/decrypt/hash" target="_blank" rel="noopener noreferrer">hashes.com</a></li>
+					<li><a href="https://md5decrypt.net/en/" target="_blank" rel="noopener noreferrer">md5decrypt.net</a></li>
+					<li><a href="http://rainbowtables.it64.com/" target="_blank"
+							rel="noopener noreferrer">rainbowtables.it64.com</a></li>
+				</ul>
+				<p> Para demostrar esto haremos una prueba con una contraseña y su valor de hash y trataremos de desencriptar el
+					hash con un ataque de tabla arcoíris para ello iremos a un conversor de texto plano a SHA-1 <a
+						href="http://www.sha1-online.com/" target="_blank" rel="noopener noreferrer">www.sha1-online.com</a>
+					y después lo trataremos de desencriptar en <a href="https://crackstation.net/" target="_blank"
+						rel="noopener noreferrer">crackstation.net</a><br><br>
+					<img src="./sha-1password.png" alt="sha1-online website example"><br><br>
+
+					En este caso hemos convertido la cadena de texto “passwordsecret” en un hash y nos ha computado este hash de
+					salida entonces el hash de “passwordsecret” seria <code>a6a818514ef11592386d6b0dc0d49b282a170d2f</code> ahora
+					trataremos de
+					romperlo con un ataque de tabla arcoíris iremos a crackstation.net y introduciremos el hash correspondiente,
+					automáticamente crackstation.net conocerá que tipo es el hash y tratara de coincidir el hash que introduzcamos
+					con su tabla de hashes pre-computada: <br><br>
+
+					<img src="./crackstation-example.png" alt="crackstation example">
+					<br>
+
+					Como podemos observar la web fue capaz de encontrar una coincidencia de hash y nos ha logrado devolver el hash
+					desencriptado en el apartado de resultados el cual es “passwordsecret”.
+					<br><br>
+					Esta es una de algunas técnicas que utilizan los cibercriminales y los hackers éticos para desencriptar
+					hashes, existen otras tácticas que utilizan, ataques de fuerza bruta como el ataque de cumpleaños, ataques
+					basados en diccionario, ataques de hash injection, entre otras. O si es en caso de recuperar tus contraseñas
+					en plano podrían utilizar otras técnicas como phishing, ingeniería social, man-in-the-middle attack, o
+					utilizar bases de datos de contraseñas simples vulneradas entre otras.
+
+
+				</p>
+				</p>
+				<h2 id="como mitigar un ataque rainbow attack">Mitigar un ataque Rainbow Table Attack</h2>
+				<p>Como dijimos anteriormente un hash es una encriptación algorítmica que encripta cualquier tipo de dato,
+					texto, o archivo, con funciones matemáticas, ahora bien como observamos anteriormente es fácil poder
+					quebrantar hashes con técnicas como la tabla arcoíris si las contraseñas son muy sencillas y cortas, de nada
+					serviría utilizar un algoritmo criptográfico sofisticado si nuestra contraseña es “1234”, es más importante
+					determinar el valor de entrada de un hash antes que el tipo de encriptación, por lo que es recomendable
+					utilizar contraseñas robustas en cualquier servicio o sitio online que requiera encriptación.
+					<br>
+					Ahora si lo que queremos es resguardar la integridad de los datos, si tenemos una base de datos de
+					contraseñas, como anteriormente explicamos podemos utilizar la técnica de salt o salting la cual consiste en
+					sumar un valor aleatorio de caracteres a un hash, asi, dificultando los ataques de tabla arcoíris, y los
+					ataques tipo diccionario, tambien podemos utilizar métodos mucho más seguros como la función de derivación de
+					claves, entre otras técnicas.
+				</p>
+				<h2 id="uso-de-hashes-en-autenticacion-de-contraseñas">Uso de hashes en sistemas de autenticacion</h2>
+				<p>El correcto funcionamiento y seguridad de la integridad de los datos de los usuarios debe ser de usted y de
+					la empresa a la cual usted le confía sus datos, es por ello que además de usar contraseñas robustas, las
+					empresas pueden optar por implementaciones seguras a sus sistemas de autenticación, organizaciones como OWASP
+					proporcionan técnicas diferentes para el salting aplicado a sistemas de autenticación: <a
+						href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#salting"
+						target="_blank" rel="noopener noreferrer">Password Storage - OWASP Cheat Sheet Series</a>, tambien existe
+					información acerca de la correcta encriptación de contraseñas con
+					métodos SALT en sistemas ASP.NET proporcionado por Microsoft <a
+						href="https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-7.0"
+						target="_blank" rel="noopener noreferrer">Hash passwords in ASP.NET Core | Microsoft Learn.</a>
+				</p>
 			</div>
 		</div>
 
@@ -250,8 +328,7 @@
 					</div>
 					<div class="social-col col-sm-3 col-md-3">
 						<div class="instagram">
-							<a href="https://www.instagram.com/christianymoon/" target="_blank"
-								rel="noopener noreferrer">
+							<a href="https://www.instagram.com/christianymoon/" target="_blank" rel="noopener noreferrer">
 								<i class="bi bi-instagram"></i>
 								<h6>Instagram</h6>
 							</a>
@@ -259,8 +336,7 @@
 					</div>
 					<div class="social-col col-sm-3 col-md-3">
 						<div class="linkedin">
-							<a href="https://www.linkedin.com/in/christianymoon" target="_blank"
-								rel="noopener noreferrer">
+							<a href="https://www.linkedin.com/in/christianymoon" target="_blank" rel="noopener noreferrer">
 								<i class="bi bi-linkedin"></i>
 								<h6>Linkedin</h6>
 							</a>

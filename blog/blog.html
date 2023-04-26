@@ -27,7 +27,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <title>Christian Vergara Ethical Hacker | Software Developer</title>
+  <title>Blog section</title>
 </head>
 
 <body>
@@ -102,160 +102,147 @@
     </nav>
     <!-- end navbar -->
 
-    <!-- change theme button -->
-    <div class="change-theme-button container d-flex align-items-center">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="toggle-theme" checked>
-        <label class="form-check-label" for="toggle-theme">Cambiar tema</label>
-      </div>
-    </div>
-
     <!-- create a blog navbar -->
-
-    <div class="containter-blog-navbar">
-      <nav>
-        <ul>
-          <li><i class="bi bi-fingerprint"></i><a href="#cybersecurity">Cybersecurity</a></li>
-          <li><i class="bi bi-code-slash"></i><a href="#programming">Programming</a></li>
-          <li><i class="bi bi-box"></i><a href="#hackthebox">HackTheBox</a></li>
-          <li><i class="bi bi-bug"></i><a href="#exploits">Exploits</a></li>
-          <li><i class="bi bi-robot"></i><a href="#artificial-intelligence">IA</a></li>
-          <li><i class="bi bi-youtube"></i><a href="#videos">Videos</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="searcher">
-      <div class="container searcher">
-        <input id="searchbar" onkeyup="searchengine()" type="text" name="Search" , placeholder="Buscar">
+    <div class="main-index">
+      <div class="containter-blog-navbar">
+        <nav>
+          <ul>
+            <li><a href="#cybersecurity"><i class="bi bi-fingerprint"></i>Cybersecurity</a></li>
+            <li><a href="#programming"><i class="bi bi-code-slash"></i>Programming</a></li>
+            <li><a href="#hackthebox"><i class="bi bi-box"></i>HackTheBox</a></li>
+            <li><a href="#exploits"><i class="bi bi-bug"></i>Exploits</a></li>
+            <li><a href="#artificial-intelligence"><i class="bi bi-robot"></i>IA</a></li>
+            <li><a href="#videos"><i class="bi bi-youtube"></i>Videos</a></li>
+          </ul>
+          <div class="change-theme-button container d-flex align-items-center">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="toggle-theme" checked>
+              <label class="form-check-label" for="toggle-theme">Cambiar tema</label>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="super-container container">
+        <div class="searcher">
+          <div class="container searcher">
+            <input id="searchbar" onkeyup="searchengine()" type="text" name="Search" , placeholder=">_">
+          </div>
+        </div>
+        <div id="cybersecurity" class="cybersecurity-blog">
+          <div class="category-container container-fluid text-center">
+            <div class="category-col">
+              <h4>CYBERSECURITY</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="block-blog">
+              <div class="image-blog">
+                <img src="/blog-content/rainbow-attack/rainbow_table.jpg" alt="Place" srcset="">
+              </div>
+              <h1>Rainbow Table Attack</h1>
+              <p>Explicaremos que es y en que consiste la tecnica de tabla arcoiris (Rainbow Cracking Hash) para
+                crackear
+                o descifrar hashes MD5, SHA1, SHA2 etc, explicaremos que es un hash y algunas vulnerabilidades de estos. <br>
+                <span class="badge rounded-pill text-bg-dark">hash</span>
+                <span class="badge rounded-pill text-bg-dark">sha-1</span>
+                <span class="badge rounded-pill text-bg-dark">rainbow</span>
+              </p>
+              <a href="../blog-content/rainbow-attack/rainbow-cracking-hash.html" rel="noopener noreferrer">Blog<i class="bi bi-caret-right-fill"></i></a>
+              
+            </div>
+          </div>
+        </div>
+        <div id="programming" class="programming-blog">
+          <div class="category-container container-fluid text-center">
+            <div class="category-col">
+              <h4>PROGRAMMING</h4>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="block-blog">
+              <div class="image-blog">
+                <img src="https://placehold.co/200x200" alt="Place" srcset="">
+              </div>
+              <h1>Python vs C++</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi enim rerum voluptate modi et obcaecati
+                distinctio suscipit ipsam at laborum. In totam voluptatibus doloremque dolorem numquam perferendis,
+                dolores maxime magni.</p>
+              <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="block-blog">
+              <div class="image-blog">
+                <img src="https://placehold.co/200x200" alt="Place" srcset="">
+              </div>
+              <h1>Comming Soon</h1>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et
+                aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi,
+                praesentium quos?</p>
+              <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+          </div> -->
+        </div>
+        <div id="hackthebox" class="Hackthebox-blog">
+          <div class="category-container container-fluid text-center">
+            <div class="category-col">
+              <h4>HACKTHEBOX WRITEUPS</h4>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="block-blog">
+              <div class="image-blog">
+                <img src="https://placehold.co/200x200" alt="Place" srcset="">
+              </div>
+              <h1>Hackthebox - Precious walkthrought</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
+                voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
+                Vero, assumenda cumque.</p><br>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
+                eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
+              </p>
+              <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+          </div> -->
+        </div>
+        <div id="artificial-intelligence" class="artificial-intelligence">
+          <div class="category-container container-fluid text-center">
+            <div class="category-col">
+              <h4>ARTIFICIAL INTELLIGENCE</h4>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="block-blog">
+              <div class="image-blog">
+                <img src="https://placehold.co/200x200" alt="Place" srcset="">
+              </div>
+              <h1>ChatGPT</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
+                voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
+                Vero, assumenda cumque.</p><br>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
+                eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
+              </p>
+              <a href="http://google.com" target="_blank" rel="noopener noreferrer">Tutorial</a>
+            </div>
+          </div> -->
+        </div>
+        <div id="exploits" class="Exploits">
+          <div class="category-container container-fluid text-center">
+            <div class="category-col">
+              <h4>EXPLOITS</h4>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="block-blog">
+              <p>Comming Soon... </> root@kali~$</p>
+              <a href="http://google.com" target="_blank" rel="noopener noreferrer">Comming Soon</a>
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
 
-    <div class="super-container container">
-      <div id=cybersecurity" class="cybersecurity-blog">
-        <div class="category-container container-fluid text-center">
-          <div class="category-col">
-            <h4>CYBERSECURITY</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>Rainbow Table Attack</h1>
-            <p>Explicaremos que es y en que consiste la tecnica de tabla arcoiris (Rainbow Cracking Hash) para crackear
-              o descifrar hashes MD5, SHA1, SHA2 etc, explicaremos que es un hash y algunas vulnerabilidades de estos.</p>
-            <a href="../blog-content/rainbow-attack/rainbow-cracking-hash.html" rel="noopener noreferrer">Blog</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>Phishing</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et
-              aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi,
-              praesentium quos?</p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
-          </div>
-        </div>
-      </div>
-      <div id="programming"class="programming-blog">
-        <div class="category-container container-fluid text-center">
-          <div class="category-col">
-            <h4>PROGRAMMING</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>Python vs C++</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi enim rerum voluptate modi et obcaecati
-              distinctio suscipit ipsam at laborum. In totam voluptatibus doloremque dolorem numquam perferendis,
-              dolores maxime magni.</p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>Heap y Stack</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate enim adipisci nulla tempore minus et
-              aperiam rem esse expedita magni sunt quas voluptas perferendis voluptatibus iusto veniam quasi,
-              praesentium quos?</p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
-          </div>
-        </div>
-      </div>
-      <div id="hackthebox" class="Hackthebox-blog">
-        <div class="category-container container-fluid text-center">
-          <div class="category-col">
-            <h4>HACKTHEBOX WRITEUPS</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>Hackthebox - Precious walkthrought</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
-              voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
-              Vero, assumenda cumque.</p><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
-              eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
-            </p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Blog</a>
-          </div>
-        </div>
-
-
-
-
-
-      </div>
-      <div id="artificial-intelligence" class="artificial-intelligence">
-        <div class="category-container container-fluid text-center">
-          <div class="category-col">
-            <h4>ARTIFICIAL INTELLIGENCE</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <div class="image-blog">
-              <img src="https://placehold.co/200x200" alt="Place" srcset="">
-            </div>
-            <h1>ChatGPT</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas deleniti obcaecati expedita,
-              voluptatibus ratione, modi quisquam amet quae vero veritatis ducimus error qui voluptates, sit sint quod.
-              Vero, assumenda cumque.</p><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quae quidem possimus ut accusamus mollitia
-              eos rem, nihil modi deserunt omnis voluptas numquam, consequuntur porro totam laborum non repellat rerum.
-            </p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Tutorial</a>
-          </div>
-        </div>
-      </div>
-      <div id="exploits" class="Exploits">
-        <div class="category-container container-fluid text-center">
-          <div class="category-col">
-            <h4>EXPLOITS</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="block-blog">
-            <p>Comming Soon... </> root@kali~$</p>
-            <a href="http://google.com" target="_blank" rel="noopener noreferrer">Comming Soon</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="../search.js"></script>
     <script src="../blog_theme.js"></script>

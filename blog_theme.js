@@ -11,7 +11,9 @@ const blogElements = [
     '.super-container .category-col h4',
     '.super-container .row',
     '.super-container .block-blog',
+    '.super-container .block-blog h1',
     '.super-container',
+    '#searchbar'
 ]
 
 const containerBlogNavbarElements = [
