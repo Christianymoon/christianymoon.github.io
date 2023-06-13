@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'Anurati';
-  src: url('fonts/ANURATI-REGULAR.OTF') format('opentype');
+  src: url('/fonts/ANURATI-REGULAR.OTF') format('opentype');
 }
 
 body {

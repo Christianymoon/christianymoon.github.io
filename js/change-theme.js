@@ -25,8 +25,6 @@ toggleSwitch.addEventListener('change', () => {
   navbar.classList.toggle('light-theme');
   changeThemeButton.classList.toggle('black');
   hero_sup.classList.toggle('light-theme');
-  hero_icon.classList.toggle('light-theme');
-  hero_icon_img.classList.toggle('light-theme');
   hero_inf.classList.toggle('light-theme');
   exp_label.classList.toggle('light-theme');
   exp.classList.toggle('light-theme');
