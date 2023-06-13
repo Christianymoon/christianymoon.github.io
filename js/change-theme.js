@@ -3,7 +3,6 @@ const body = document.querySelector('body');
 const navbar = document.querySelector('.navbar');
 const nav_link = document.querySelectorAll('.nav-link');
 const hero_sup = document.querySelector('.hero-sup');
-const hero_icon = document.querySelector('.hero-icon');
 const hero_inf = document.querySelector('.hero-inf');
 const exp_label = document.querySelector('.exp-label');
 const exp = document.querySelector('.exp');
@@ -27,6 +26,7 @@ toggleSwitch.addEventListener('change', () => {
   changeThemeButton.classList.toggle('black');
   hero_sup.classList.toggle('light-theme');
   hero_icon.classList.toggle('light-theme');
+  hero_icon_img.classList.toggle('light-theme');
   hero_inf.classList.toggle('light-theme');
   exp_label.classList.toggle('light-theme');
   exp.classList.toggle('light-theme');
@@ -77,7 +77,7 @@ toggleSwitch.addEventListener('change', () => {
   });
 
   changeSvgColor('.main-svg .fil0', 'black');
-  quitObject('.hero-sup img');
+  // quitObject('.hero-sup img');
 
 });
 

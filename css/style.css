@@ -68,7 +68,24 @@ body.light-theme {
   color: var(--light-enfasis-color) !important;
 }
 
+
+/* video section */
+
+.main-video {
+  position: absolute;
+}
+
+.main-video video {
+  opacity: 0.5;
+  width: 100%;
+  height: auto;
+}
+
+
+/* button section */
+
 .change-theme-button {
+  position: relative;
   padding: 10px;
   margin: 20px;
   font-size: 15px;
@@ -80,6 +97,8 @@ body.light-theme {
   color: black;
 }
 
+
+
 /* hero section */
 
 .hero-sup {
@@ -87,20 +106,15 @@ body.light-theme {
   font-size: 1.5em;
   padding-top: 30px;
   padding-bottom: 30px;
+  position: relative;
 }
 
 .hero-sup.light-theme {
   color: var(--light-font-color)
 }
 
-.hero-sup img {
-  opacity: 0.2;
-  position: absolute;
-  transition: all 0.5s ease-out;
-}
-
-.hero-sup:hover img {
-  opacity: 0.1;
+.hero-sup .hero-icon img:hover {
+  opacity: 0.9;
 }
 
 .hero-sup img.quit {
@@ -116,14 +130,17 @@ body.light-theme {
 }
 
 .hero-icon {
-  font-size: 90px;
-  color: var(--enfasis-color);
   padding-left: 1.5em;
+  position: relative;
 }
 
-.hero-icon.light-theme {
-  color: var(--light-enfasis-color);
+.hero-icon img {
+  width: 50%;
+  height: 50%;
+  opacity: 0.4;
+  transition: 1s all ease;
 }
+
 
 .hero-inf {
   color: var(--font-color);
@@ -141,6 +158,7 @@ body.light-theme {
   color: var(--back-color);
   background: var(--font-color);
   padding: 10px;
+  position: relative;
 
 }
 
@@ -587,13 +605,16 @@ body.light-theme {
 
 @media screen and (max-width: 767px) {
   .hero-icon {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .hero-sup img {
-    display: none;
+    display: block;
   }
 }
 
@@ -637,4 +658,15 @@ body.light-theme {
   }
 }
 
+@media screen and (max-width: 767px) {
+  .main-video {
+    height: 100%;
+  }
+  .main-video video {
+    opacity: 0.4;
+    height: 100%;
+    object-fit: cover;
+  }
 
+
+}
