@@ -5,25 +5,103 @@
 .dart-container {
 	display: flex;
 	flex-direction: column;
-	border: 1px red solid;
 	height: 100%;
-	background: var(--blue-dart);
+	justify-content: center;
+	align-items: center;
 }
 
 .dart-description {
-	width: 150px;
-	height: auto;
-	border: 1px red solid;
-	margin-left: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+
 }
 
-.dart-description img {
+.dart-description a {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: white;
+	background: var(--enfasis-secondary);
+	padding: 10px;
+	border-radius: 10px;
+	margin-right: 30px;
+	transition: 0.5s all ease;
+}
+
+.dart-description a:hover {
+	background: var(--enfasis-terciary);
+}
+
+.dart-description .dart-icons {
+	margin-left: 10px;
+}
+
+.dart-description-image {
+	width: 150px;
+	height: auto;
+	margin: 10px;
+}
+
+.dart-description-image img {
 	object-fit: cover;
 	width: 100%;
 
 }
 
-.dart-projects {
-	border: 1px red solid;
+
+
+.dart-icons {
+	font-size: 20px;
+	color: white;
+
 }
+
+
+
+
+
+
+
+.dart-wiki {
+	height: auto;
+	width: 100%;
+	padding: 25px 25px;
+
+}
+
+.dart-wiki .dart-title {
+	font-size: 22px;
+	color: white;
+	font-family: 'Open Sans', 'sans-serif';
+}
+
+.dart-wiki .dart-desc {
+	font-size: 18px;
+	color: white;
+	font-family: 'Montserrat', 'sans-serif';
+}
+
+.dart-wiki .dart-author {
+	font-size: 15px;
+	color: white;
+	font-family: 'Open Sans', 'sans-serif';
+}
+
+.dart-author i {
+	padding: 0px 10px;
+}
+
+.dart-projects {
+	background: black;
+	width: 100%;
+}
+
+
+
+
 

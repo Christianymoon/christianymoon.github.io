@@ -1,0 +1,298 @@
+:root {
+	--glass-color: white;
+}
+
+
+@keyframes baranimation {
+	0% {width: 50px;}
+	25% {width: 100px}
+	50% {width: 150px}
+	75% {width: 200px}
+	100% {width: 250px}
+}
+
+.projects-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+/*	border: 1px red solid;*/
+}
+
+.projects-container img {
+	position: relative;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+}
+
+.projects-glass-container {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5.3px);
+	-webkit-backdrop-filter: blur(5.3px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	display: flex;
+	flex-direction: column;
+
+}
+
+.projects-searcher {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: white;
+/*	border: 1px red solid;*/
+	
+}
+
+.projects-searcher .searcher {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.projects-searcher p {
+	font-family: 'Anurati', 'Courier New', Courier, monospace;
+	font-size: 14px;
+	letter-spacing: 10px;
+
+}
+ 
+.projects-searcher .searcher input {
+	border: none;
+	outline: none;
+	border-bottom: 1px white solid;
+	height: 20px;
+	width: 250px;
+	font-size: 14px;
+	background: transparent;
+	color: white;
+	animation-name: baranimation;
+	animation-duration: 0.2s;
+}
+
+.projects-searcher button {
+	border: none;
+	background: transparent;
+/*	border: 1px red solid;*/
+	margin-left: 50px;
+}
+
+.projects-searcher i {
+	font-size: 18px;
+	color: white;
+
+}
+
+.projects-searcher .searcher > * {
+	margin: 30px 30px;
+/*	border: 1px red solid;*/
+}
+
+.projects-filters-logos {
+	width: 100%;
+	height: 100%;
+	display: none;
+/*	border: 1px red solid;*/
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	list-style: none;
+	d
+	
+}
+
+
+
+.projects-filters-item {
+	width: 30px;
+	height: 100%;
+	margin: 0px 30px;
+	transition: 0.6s all ease;
+/*	border: 1px red solid;*/
+
+}
+
+.projects-filters-item:hover {
+	transform: translateY(-20px);
+}
+
+.projects-filters-item img {
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+
+
+
+
+
+
+.projects-list {
+	width: 100%;
+	height: 100%;
+/*	border: 1px red solid;*/
+	margin-top: 20px;
+}
+
+.projects-list-container {
+	list-style: none;
+	padding-left: 0;
+}
+
+.projects-list-item {
+	margin-left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+}
+
+.projects-list-item .list-item {
+	display: flex;
+	flex-direction: row;
+	width: 75%;
+	height: 100%;
+	align-items: center;
+
+	margin-right: 10px;
+	margin-left: 90px;
+	text-decoration: none;
+	color: white;
+	border-radius: 20px;
+
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5.3px);
+	-webkit-backdrop-filter: blur(5.3px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.projects-list-tec {
+	width: 20%;
+	height: 100%;
+	margin-left: 20px;
+	padding: 10px;
+}
+
+.projects-list-tec img {
+	object-fit: contain;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+}
+
+
+
+.projects-list-title {
+	height: 100%;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.projects-list-options {
+	width: 25%;
+	height: 100%;
+	margin-right: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5.3px);
+	-webkit-backdrop-filter: blur(5.3px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+.projects-list-icon {
+	color: white;
+	font-size: 18px;
+	padding: 0px 20px;
+}
+
+
+@media screen and (max-width: 750px) {
+	.projects-searcher {
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.projects-searcher .searcher {
+		flex-direction: column;
+	}
+
+	.projects-searcher button {
+		margin-left: 0;
+	}
+
+	/*	FILTERS*/
+
+	.projects-filters-logos {
+		display: none;
+		padding: 0px;
+	}
+
+	/*	LIST ENTRYS*/
+
+
+	.projects-list-item {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		height: auto;
+
+	}
+
+	.projects-list-item .list-item {
+		justify-content: center;
+		margin: 10px 0px;
+	}
+
+
+	/*	INFORMATION */
+
+	.projects-list-tec {
+		margin: 0;
+	}
+
+	.projects-list-title {
+		overflow: auto;
+
+	}
+
+	.projects-list-options {
+		width: 50%;
+		display: flex;
+		flex-direction: row;
+		margin: 10px 0px;
+
+	}
+
+	.projects-list-icon {
+		padding: 5px;
+	}
+
+}
+
