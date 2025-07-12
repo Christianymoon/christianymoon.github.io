@@ -6,7 +6,7 @@
   "homepage": "https://christianymoon.github.io/",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && cp build/index.html build/404.html",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
