@@ -23,7 +23,7 @@ const links = [
 ]
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename={'/'}>
   <Navbar links={links}/>
     <Routes>
       <Route path="/" element={<Hero />} />
