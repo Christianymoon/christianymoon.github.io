@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+	<!-- google fonts  -->
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+	<!-- stylesheet  -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/blog.css">
+	<!-- metadata -->
+	<meta charset="utf-8">
+	<meta name="author" content="Christian Vergara">
+	<meta name="description" content="Christian Vergara Desarrollador de software y practicante de Ethical Hacking">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="rainbow table attack, hash attack, hash, md5, sha-1, encriptacion, criptografia, que es rainbow table attack, ataque, ciberseguridad, ataque cumpleaños, birthday attack">
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+	<title>Cracking hashes with Rainbow Table</title>
+</head>
+
+<body>
+	<main>
+		<div class="blog-content">
+			<div class="sidebar">
+				<h1>Contenido</h1>
+				<ul>
+					<li><a href="#que-es-un-hash">¿Que es un Hash?</a></li>
+					<li><a href="#cracking-de-hash">Cracking de hash con Rainbow</a></li>
+					<li><a href="#como mitigar un ataque rainbow attack">Mitigar un ataque Rainbow Table Attack</a></li>
+					<li><a href="#uso-de-hashes-en-autenticacion-de-contraseñas">Uso de hashes en sistemas de autenticacion</a>
+					</li>
+				</ul>
+			</div>
+			<div class="main-content">
+				<h1>Que es un Rainbow Cracking Attack</h1>
+				<div class="image">
+					<img src="./rainbow_table.jpg" alt="rainbow-table-example" srcset="">
+				</div>
+				<p>Cuando nos registramos en una página web, en una aplicación móvil, la aplicación de tu proveedor
+					financiero,
+					cualquier servicio que requiera un correo y una contraseña tiene que ser almacenado en algún lugar,
+					las
+					empresas tienen distintos métodos de guardar tu información, y una de ellas, probablemente la más
+					usada hasta
+					ahora seria guardar toda esa información sensible en una base de datos, ¿Qué es una base de datos?
+					Una base de
+					datos es una tabla de registros en la cual es almacenada tu información. Las contraseñas por lo
+					general no son
+					guardadas como tu mismo las escribes en tu formulario es decir en texto plano, si no que se
+					implementa un tipo
+					de cifrado computado para que el usuario común sea casi imposible descifrarlo, sin embargo, una
+					computadora si
+					tiene la posibilidad de hacerlo, y los cibercriminales saben cómo hacerlo, y entre una de sus
+					técnicas se
+					encuentra la técnica rainbow crackng hash basada en tabla.
+				</p>
+				<h2 id="que-es-un-hash">¿Que es un Hash?</h2>
+				<p>Un hash en un algoritmo matemático que computa una serie de datos para transformarlo en una nueva
+					cadena de
+					caracteres, cabe recalcar que esta longitud de caracteres dependiendo del hash o método de
+					encriptación es
+					siempre fija, es decir que tanto encriptar el carácter ‘a’ como encriptar toda una tesis dará el
+					mismo
+					resultado o longitud de caracteres, ahora bien, existen muchos métodos de encriptación, algunas mas
+					inseguras
+					que otras, sin embargo en los sistemas informáticos es más común oír de las siguientes:
+				<ul>
+					<li>
+						<p>MD5</p>
+					</li>
+					<p>Este método de encriptación de 128 bits es utilizado ampliamente para verificar la autenticidad
+						de un
+						archivo es decir que crea una firma digital para evitar la piratería de archivos modificados o
+						con virus
+						informáticos, aunque este método de encriptación tenga 2^128 de posibles combinaciones, se ha
+						encontrado
+						varios fallos de hash collision esto significa que 2 entradas pueden generar el mismo hash y
+						crear un fallo
+						de seguridad, lo que ha llevado a ser fácilmente vulnerable a ataques de probabilidad, como el
+						birthday
+						attack.
+					</p>
+					<img src="Surjection.png" alt="hash collision wikipedia" srcset="">
+					<p>
+						Podemos calcular fácilmente la firma criptográfica de un archivo con la herramienta md5sum
+						implementada en
+						sistemas operativos Unix, tambien podemos crear un hash con un lenguaje de scripting.
+					</p>
+					<li>
+						<p>SHA-1</p>
+					</li>
+					<p>SHA o Secure hash Algorithm es una serie de funciones criptográficas desarrolladas por la NSA
+						(National
+						Security Agency) y por la NIST, fueron pensadas para solucionar los problemas de colisión de
+						hash,
+						utilizando su capacidad de no reflexividad es decir que dada una cadena de bits, no es posible
+						tener
+						duplicaciones de salida, sin embargo, en la actualidad se han encontrado varias vulnerabilidades
+						que han
+						hecho que organizaciones dejaran de utilizarlo, en 2004 criptográficos de China han demostrado
+						comprometer
+						la función en 2^69 operaciones y en 2017 se logró crear la primera colisión de SHA1, el equipo
+						de
+						Google y CWI
+						Institute llamada <a href="http://shattered.io" target="_blank" rel="noopener noreferrer">SHAttered</a>, la
+						cual logro crear la colisión en 9 quintillones
+						de
+						cálculos SHA1, 100,000
+						veces más rápido que la paradoja del ataque birthday, SHA-1 a diferencia de MD5 es una función
+						criptográfica de una longitud de 160 bits, aun asi su uso se recomienda cambiar por alternativas
+						mas seguras, como SHA-2 o SHA-3.</p>
+					<img src="https://www.poftut.com/wp-content/uploads/2019/10/img_5d96ab3757a99.png" alt="sha-1 example">
+					<li>
+						<p>SHA-2</p>
+					</li>
+					<p>SHA-2 es un conjunto de funciones criptográficas desarrolladas por la NSA, (SHA-224, SHA-256,
+						SHA-384, SHA-512) las cuales tienen como longitud en bits cada función como su nombre lo indica
+						al final, es decir 224, 256, 384 y 512 bits, fueron pensadas para crear una opción más segura,
+						después de las colisiones de hash producidas por su predecesora SHA-1, actualmente SHA-2 y SHA-1
+						son las tecnologías mas usadas por las organizaciones, pese a que en SHA-1 se encontraron dichas
+						colisiones, aun no se ha llevado por completo el cambio de SHA-1 a SHA-2, sin embargo SHA-2 ya
+						esta implementada en un gran número de aplicaciones y protocolos como SSL, TTL, SSH, etc. además
+						se usan para verificar la autenticidad de los paquetes Debian de GNU/Linux entre otras
+						aplicaciones.</p>
+				</ul>
+
+				</p>
+				<h2 id="cracking-de-hash">Cracking de hash con Rainbow</h2>
+				<p>Como pudimos observar un hash es un algoritmo computado matemáticamente para verificar firmas, o
+					huellas digitales, verificar la autenticidad de un archivo o en la mayoría de los casos, para
+					encriptar una contraseña en una base de datos, ahora bien, nosotros cuando insertamos una contraseña
+					en texto plano, ya sea al registrarnos en un servicio, o al iniciar sesión en un servicio online, lo
+					que sucede en el lado del servidor es que la contraseña introducida textualmente en el formulario,
+					se envía directamente al servidor, y este servidor lo que hace es comparar la contraseña introducida
+					a manera de hash con la de su base de datos, por supuesto tambien encriptada, y bien, si la
+					contraseña introducida produce el mismo hash que se genero al registrarte en dicho servicio,
+					entraras en tu cuenta exitosamente, ahora es comprensible porque los hashes no deben colisionar, ya
+					que si llegara a pasar podrías insertar otra contraseña que no sea la que inicialmente te
+					registraste y esto se llamaría colisión de hash, es como si otra persona pudiera desbloquear tus
+					datos por que tiene tu misma huella dactilar, es por eso que en muchas bases de datos para agregar
+					más seguridad a sus hashes, se aplica una técnica llamada salting que añade una pequeña diferencia
+					al hash para que en caso de que caiga en manos de un atacante sea mucho más difícil desencriptarlo.
+					<br><br>
+					Un ataque de rainbow table o tabla arcoiris, es una de las maneras en que los ciberdelincuentes o los hackers
+					éticos utilizan para desencriptar hashes, (con objetivos totalmente distintos claro), consiste en
+					una tabla de valores de hashes pre-computados, es decir que ya han sido calculadas con sus valores
+					correspondientes de caracteres, un atacante buscara en la tabla algún valor de hash que coincida con
+					el correspondiente y asi obtener su contraseña. Si el valor hash de la contraseña desconocida
+					coincide con uno de los valores hash de la tabla rainbow, puede determinar la contraseña
+					correspondiente.
+					<br><br>
+					En base a esto podemos determinar que una rainbow table puede descifrar contraseñas que sean mas
+					conocidas o que por lo menos estén dentro de su tabla precalculada es decir que es mucho más difícil
+					encontrar una coincidencia con una contraseña robusta que con una entrada de contraseña básica como
+					“1234” o “password” ya que estas en valor de hash podrían ser fácilmente vulnerables a ataques de
+					tabla arcoíris, podríamos decir en este punto que el valor de entrada de un hash determina la
+					dificultad de desencriptar el mismo.
+					A continuación, algunos sitios web de tabla arcoíris online donde podrías probar contraseñas:
+
+				<ul>
+					<li><a href="https://crackstation.net/" target="_blank" rel="noopener noreferrer">crackstation.net</a></li>
+					<li><a href="https://hashkiller.io/" target="_blank" rel="noopener noreferrer">hashkiller.io</a></li>
+					<li><a href="https://hashes.com/en/decrypt/hash" target="_blank" rel="noopener noreferrer">hashes.com</a></li>
+					<li><a href="https://md5decrypt.net/en/" target="_blank" rel="noopener noreferrer">md5decrypt.net</a></li>
+					<li><a href="http://rainbowtables.it64.com/" target="_blank"
+							rel="noopener noreferrer">rainbowtables.it64.com</a></li>
+				</ul>
+				<p> Para demostrar esto haremos una prueba con una contraseña y su valor de hash y trataremos de desencriptar el
+					hash con un ataque de tabla arcoíris para ello iremos a un conversor de texto plano a SHA-1 <a
+						href="http://www.sha1-online.com/" target="_blank" rel="noopener noreferrer">www.sha1-online.com</a>
+					y después lo trataremos de desencriptar en <a href="https://crackstation.net/" target="_blank"
+						rel="noopener noreferrer">crackstation.net</a><br><br>
+					<img src="./sha-1password.png" alt="sha1-online website example"><br><br>
+
+					En este caso hemos convertido la cadena de texto “passwordsecret” en un hash y nos ha computado este hash de
+					salida entonces el hash de “passwordsecret” seria <code>a6a818514ef11592386d6b0dc0d49b282a170d2f</code> ahora
+					trataremos de
+					romperlo con un ataque de tabla arcoíris iremos a crackstation.net y introduciremos el hash correspondiente,
+					automáticamente crackstation.net conocerá que tipo es el hash y tratara de coincidir el hash que introduzcamos
+					con su tabla de hashes pre-computada: <br><br>
+
+					<img src="./crackstation-example.png" alt="crackstation example">
+					<br>
+
+					Como podemos observar la web fue capaz de encontrar una coincidencia de hash y nos ha logrado devolver el hash
+					desencriptado en el apartado de resultados el cual es “passwordsecret”.
+					<br><br>
+					Esta es una de algunas técnicas que utilizan los cibercriminales y los hackers éticos para desencriptar
+					hashes, existen otras tácticas que utilizan, ataques de fuerza bruta como el ataque de cumpleaños, ataques
+					basados en diccionario, ataques de hash injection, entre otras. O si es en caso de recuperar tus contraseñas
+					en plano podrían utilizar otras técnicas como phishing, ingeniería social, man-in-the-middle attack, o
+					utilizar bases de datos de contraseñas simples vulneradas entre otras.
+
+
+				</p>
+				</p>
+				<h2 id="como mitigar un ataque rainbow attack">Mitigar un ataque Rainbow Table Attack</h2>
+				<p>Como dijimos anteriormente un hash es una encriptación algorítmica que encripta cualquier tipo de dato,
+					texto, o archivo, con funciones matemáticas, ahora bien como observamos anteriormente es fácil poder
+					quebrantar hashes con técnicas como la tabla arcoíris si las contraseñas son muy sencillas y cortas, de nada
+					serviría utilizar un algoritmo criptográfico sofisticado si nuestra contraseña es “1234”, es más importante
+					determinar el valor de entrada de un hash antes que el tipo de encriptación, por lo que es recomendable
+					utilizar contraseñas robustas en cualquier servicio o sitio online que requiera encriptación.
+					<br>
+					Ahora si lo que queremos es resguardar la integridad de los datos, si tenemos una base de datos de
+					contraseñas, como anteriormente explicamos podemos utilizar la técnica de salt o salting la cual consiste en
+					sumar un valor aleatorio de caracteres a un hash, asi, dificultando los ataques de tabla arcoíris, y los
+					ataques tipo diccionario, tambien podemos utilizar métodos mucho más seguros como la función de derivación de
+					claves, entre otras técnicas.
+				</p>
+				<h2 id="uso-de-hashes-en-autenticacion-de-contraseñas">Uso de hashes en sistemas de autenticacion</h2>
+				<p>El correcto funcionamiento y seguridad de la integridad de los datos de los usuarios debe ser de usted y de
+					la empresa a la cual usted le confía sus datos, es por ello que además de usar contraseñas robustas, las
+					empresas pueden optar por implementaciones seguras a sus sistemas de autenticación, organizaciones como OWASP
+					proporcionan técnicas diferentes para el salting aplicado a sistemas de autenticación: <a
+						href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#salting"
+						target="_blank" rel="noopener noreferrer">Password Storage - OWASP Cheat Sheet Series</a>, tambien existe
+					información acerca de la correcta encriptación de contraseñas con
+					métodos SALT en sistemas ASP.NET proporcionado por Microsoft <a
+						href="https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-7.0"
+						target="_blank" rel="noopener noreferrer">Hash passwords in ASP.NET Core | Microsoft Learn.</a>
+				</p>
+			</div>
+		</div>
+
+		<footer class="foot">
+			<div class="container-fluid">
+				<div class="row text-center">
+					<div class="col-12">
+						<h5>Sigeme en mis redes sociales</h5>
+					</div>
+				</div>
+				<div class="row text-center d-flex flex-row-reverse">
+					<div class="social-col col-sm-3 col-md-3">
+						<div class="github">
+							<a href="https://github.com/christianymoon" target="_blank" rel="noopener noreferrer">
+								<i class="bi bi-github"></i>
+								<h6>Github</h6>
+							</a>
+						</div>
+					</div>
+					<div class="social-col col-sm-3 col-md-3">
+						<div class="facebook">
+							<a href="https://www.facebook.com/profile.php?id=100089246749288" target="_blank"
+								rel="noopener noreferrer">
+								<i class="bi bi-facebook"></i>
+								<h6>Facebook</h6>
+							</a>
+						</div>
+					</div>
+					<div class="social-col col-sm-3 col-md-3">
+						<div class="instagram">
+							<a href="https://www.instagram.com/christianymoon/" target="_blank" rel="noopener noreferrer">
+								<i class="bi bi-instagram"></i>
+								<h6>Instagram</h6>
+							</a>
+						</div>
+					</div>
+					<div class="social-col col-sm-3 col-md-3">
+						<div class="linkedin">
+							<a href="https://www.linkedin.com/in/christianymoon" target="_blank" rel="noopener noreferrer">
+								<i class="bi bi-linkedin"></i>
+								<h6>Linkedin</h6>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</footer>
+
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
