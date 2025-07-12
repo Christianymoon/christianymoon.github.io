@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://christianymoon.github.io/",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "react-scripts build && cp build/index.html build/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
