@@ -32,17 +32,17 @@ export function Blog() {
           <BlogCard
           title="Rainbow Table Attack"
           description="Explicaremos que es y en que consiste la tecnica de tabla arcoiris (Rainbow Cracking Hash) para crackear o descifrar hashes MD5, SHA1, SHA2 etc, explicaremos que es un hash y algunas vulnerabilidades de estos."
-          image="/src/pages/Blog/rainbow-attack/rainbow_table.jpg"
+          image="/blog/rainbow_table.jpg"
           badge={[{ name: "Cybersecurity" }, { name: "Hashes" }]}
-          link={"/src/pages/Blog/rainbow-attack/rainbow-cracking-hash.html"}
+          link={"/blog/rainbow-cracking-hash.html"}
         />
 
         <BlogCard
           title="Subnetting"
           description="Explicaremos que es es la subnet mask el network id y como se estructura una red."
-          image="/src/pages/Blog/subnetting/subnetting.png"
+          image="/blog/subnetting.png"
           badge={[{ name: "Cybersecurity" }, { name: "Network" }]}
-          link={"/src/pages/Blog/subnetting/subnetting.html"}
+          link={"/blog/subnetting.html"}
         />
         </div> 
       </div>
