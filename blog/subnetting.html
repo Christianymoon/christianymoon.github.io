@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <style>
+    
+    :root {
+      --background: black;
+      --default-font: "Segoe UI";
+      --paragraph: "";
+    }
+
+    body {
+      background: var(--background);
+      color: limegreen;
+      font-family: "Arial";
+    }
+
+    .paragraph {
+      font-family: "Arial";
+    }
+
+    .Title {
+      font-family: "Arial";
+    }
+
+    .subtitle {
+      font-family: "Arial";
+    }
+
+    table, th, td {
+      border: 1px solid green;
+    }
+
+    .red-m {
+      color:red;
+    }
+
+
+    td {
+      width: 80px;
+      height: 30px;
+    }
+
+    code, samp {
+      font-family: "monospace";
+      font-size: 18px;
+      background: #333;
+      border-radius: 10px;
+      padding: 0 10px;
+
+    }
+
+    .default-table {
+      width: auto;
+    }
+
+
+  
+  </style>  
+
+
+  <body>
+  
+    <h1 class="Title">
+      Subnetting
+    </h1>
+
+    <h2>Estructura de una red en segmentos</h2>
+    <p class="paragraph">
+      La estructura de una red se compone de 4 numeros decimales compuestos de 4 octetos de 8 bits
+      algunos ejemplos de direcciones IP que podemos encontrar 
+      <ul>
+        <li>192.168.100.1</li>
+        <li>128.0.0.1</li>
+        <li>175.45.189.9</li>
+      </ul>
+    </p>
+
+    <p>
+      Ahora bien, cuando una direccion ip es asignada, no siempre es asignada al azar si no que por detras se manejan operaciones aritmeticas binarias para hacer una buena estructura de direcciones ip, con esto en mente podemos aclarar que las direcciones ip son traducidas y leidas por las maquinas como numeros binarios
+    </p>
+    <code>
+      direccion ip -> 192.168.100.1 -> binario -> 11000000.10101000.01100100.00000001
+    </code>
+    <p>
+      Como se determina la reparticion de direcciones ipv4 cuando se configuran mas de 1, 10, o mas de 1000 equipos de la red?, recordemos que un numero binario de 8 bits solo tiene 2**8 o 256 posibles combinaciones de numeros, por lo que se tiene que llevar una manera de asignar ordenadamente 1000 direcciones ip por ejemplo
+    </p>
+
+    <h2>El prefijo de red CIDR</h2>
+    <p>
+      Aqui es donde comenzamos a entrar en el tema del prefijo de red y subnetting, muchas veces al ver la direccion ip de nuestro computador miramos algo parecido a un numero que termina despues de nuestra direccion ip o tambien podriamos ver algo que parece una direccion que es llamada netmask, si ejecutamos en nuestra terminal linux <code>ifconfig</code> veremos algo parecido a esto, en windows en su defecto podemos hacerlo con <code>ipconfig</code> y algunas veces veremos algo parecido a esto: <code> 192.168.100.4/24</code> centremos la antencion donde esta el /24, que significa esto?
+    </p>
+
+    <p>
+      En terminos simples, este numero es llamado prefijo de red y <strong>es la cantidad de bits que estan activos en los 32 bits totales de una red IPv4</strong> en una subnet mask o mascara de subred 255.255.255.0 quiere decir que 3 octetos estan activos por lo tanto tiene 8 x 3 = 24 bits activos para determinar el prefijo de red
+    </p>
+
+    <h2>Subnet Mask</h2>
+
+    <p>
+    Pero que sucede con los bits restantes que no estan activos es decir los 8 bits restantes?, estos por su defecto determinan los hosts que pueden estar activos en la red, en su defecto habria 2**8 o 256 hosts totales que pueden ser configurados en la red, asi seria representada la mascara de subred 255.255.255.0 tal como en la tabla mostrada podemos hacer una multiplicacion logica y sumar los resultados de aquellos bits que estan activos por ejemplo en el primer octeto 128+64+32+16+8+4+2+1 nos daria un total de 255 o bien podemos usar la notacion de elevacion por posicion:
+    </p>
+
+    <div>
+
+          <table>
+      <caption>prefijo de red 255</caption>
+      <thead>
+        <tr>
+          <th>128</th>
+          <th>64</th>
+          <th>32</th>
+          <th>16</th>
+          <th>8</th>
+          <th>4</th>
+          <th>2</th>
+          <th>1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <caption>prefijo de red 255</caption>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <table>
+      <caption>prefijo de red 255</caption>
+      <thead>
+        <tr>
+          <th>128</th>
+          <th>64</th>
+          <th>32</th>
+          <th>16</th>
+          <th>8</th>
+          <th>4</th>
+          <th>2</th>
+          <th>1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <table>
+      <caption>prefijo de red 255</caption>
+      <thead>
+        <tr>
+          <th>128</th>
+          <th>64</th>
+          <th>32</th>
+          <th>16</th>
+          <th>8</th>
+          <th>4</th>
+          <th>2</th>
+          <th>1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <table>
+      <caption>prefijo de hosts 0</caption>
+      <thead>
+        <tr>
+          <th>128</th>
+          <th>64</th>
+          <th>32</th>
+          <th>16</th>
+          <th>8</th>
+          <th>4</th>
+          <th>2</th>
+          <th>1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Esto por defecto nos dira que podemos configurar una red de 255 hosts por lo tanto en una direccion ip 192.168.100.1/24 con subnet mask 255.255.255.0 puede partir desde el identificador de red 192.168.100.0 hasta el broadcast address 192.168.100.255 dandonos un total de 256 - 2 hosts configurables, restamos 2 al total de host por que no contamos el identificador de red y el boradcast address
+      </p>
+
+    </div>
+
+    
+      <p>¿Que pasaria entonces si tenemos algunos bits inactivos parcialmente en algun octeto? quiere deicr que tendremos mas hosts disponibles y por lo tanto mas rangos de direcciones ip, por lo tanto si tenemos una mascara de subred como la siguiente: </p>
+<table>
+    <caption>Primer octeto</caption>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>Segundo octeto</caption>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>Tercer octeto</caption>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>Cuarto octeto</caption>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </table>
+
+      <p>Si observamos la tabla detenidamente podemos observar que en el tercer octeto esta incompleto, si extraemos el valor del octeto correspondiente obtenemos este numero binario de 8 bits: <code>11110000</code> tenemos 2 formas de calcular esto, mediante la tabla de suma de decimales como esta en la tabla o mediante posiciones y elevaciones, en este caso usaremos la tabla de suma de decimales, es tan facil como sumar solo los que contengan el 1 en su posicion en este caso <code>128 + 64 + 32 + 16</code> que nos daria como resultado: <code>240</code> por lo tanto tendriamos una subnet mask de <code>255.255.240.0</code></p>
+
+    <div>
+      
+      
+      
+
+
+
+
+    </div>
+
+
+    <h2>Tipos de direcciones IPv4</h2>
+
+    <p>Como pudimos observar los prefijos de red y el numero de hosts es determinado mediante operaciones aritmeticas basicas binarias, y para saber cuantos hosts son configurables en una red sabemos que es determinado por el numero de bits que estan inactivos para catalogar mejor esto podemos llamar a las direcciones ip de esta manera</p>
+
+    <ul>
+      <li>
+        <h3>Direcciones IPv4 de tipo A</h3>
+        <p>Son aquellas direcciones ip cuya mascara de subred esta en el rango de (x) 255.x.0.0</p>
+      </li>
+      <li>
+        <h3>Direcciones IPv4 de tipo B</h3>
+        <p>Son aquellas direcciones ip cuya mascara de subred esta en el rango de (x) 255.255.x.0</p>
+      </li>
+      <li>
+        <h3>Direcciones IPv4 de tipo C</h3>
+        <p>Son aquellas direcciones ip cuya mascara de subred esta en el rango de (x) 255.255.255.x</p>
+      </li>
+    </ul>
+
+    <p>Para dejarlo mas claro dejaremos la siguiente tabla que ordena este tipo de direcciones ip</p>
+
+    <table>
+      <tr>
+        <th>Subnet mask</th>
+        <th>Available bits</th>
+        <th>Address Type</th>
+        <th>IPv4 Example</th>
+    
+      </tr>
+      <tr>
+        <td>x.0.0.0</td>
+        <td>0 - 8</td>
+        <td></td>
+        <td>192.168.0.1/4</td>
+      </tr>
+      <tr>
+        <td>255.x.0.0</td>
+        <td>9 - 16</td>
+        <td>Type A</td>
+        <td>10.10.13.78/15</td>
+      </tr>
+      <tr>
+        <td>255.255.x.0</td>
+        <td>17 - 24</td>
+        <td>Type B</td>
+        <td>192.168.100.4/24</td>
+      </tr>
+      <tr>
+        <td>255.255.255.x</td>
+        <td>25 - 32</td>
+        <td>Type C</td>
+        <td>192.168.100.43/30</td>
+      </tr>
+    </table>
+
+    <h2>El calculo decimal (humano)</h2>
+
+    <p>Ya sabemos como calcular una mascara de subred, ahora veremos como usar ese calculo para saber en que rango de direcciones ip se encuentra una direccion ip concreta</p>
+
+      Como hemos observado la reparticion de direcciones ip depende de los bits que estan inactivos en la mascara de subred por lo que una direccion de <strong>Tipo A</strong> tendra mas equipos configurables ya que por ejemplo una ip 192.168.100.4/16 que seria 255.255.0.0 y tendria 16 bits activos y 16 bits inactivos tendria en total 2 elevado a la 16 (2**16) posibles hosts en total (65536)</p>
+
+      <p class="red-m"><strong>Lo cual no se puede repartir en un solo octeto de bits ya que el mayor numero de un octeto es 2**8 o 256 por lo tanto una ip que rebase los 255 se considera una direccion ip invalida por ejemplo (192.168.1.65533) seria invalido </strong></p>
+
+      <p>Para repartir entonces correctamente los hosts de cada direccion ip se tiene que aumentar en una unidad el valor del anterior octeto de bits sucesivamente por lo tanto si tenemos una direccion ip el cual es 192.178.19.1/16 como obtendriamos el rango de direcciones ip a la que pertenece, si cada direccion obtiene un rango dependiendo de los hosts configurables?</p>
+
+      <p>
+        
+        En el caso de este ejemplo 192.178.19.1/16 podemos determinar a que rango de direcciones ip pertenecen con operaciones aritmeticas primero hay que dividir 
+        el total de hosts disponibles en el rango permitido en un octeto ((2**16) / (2**8)) o 65536 / 255 que nos da como resultado <strong>256</strong> exactos
+        esto quiere decir que cabrian otras 256 - 2 en el octeto subyacente por lo tanto
+        65536 hosts caberia desde 192.178.0.0 hasta 192.178.255.255.
+      </p>
+      
+
+      <p>En otro ejemplo tenemos la direccion ip 13.13.13.13/13 podria ser un poco confusa ya que posee solo 13 bits activos y 19 inactivos, esto quiere decir que nuestra subnet mask binaria seria (11111111.1111100.0000000.000000), centremos la atencion en el 2 octeto que es el afectado, tenemos el numero 11111000</p>
+
+      <p>Tomemos este numero y cambiemos el binario a numero decimal en linux</p>
+
+      <code>
+        echo "ibase=2;11111000" | bc
+      </code>
+
+      <p>Obtenemos: <samp>248</samp></p>
+
+      <p>Por lo tanto obtenemos la subnet mask 255.248.0.0 y tenemos 2**19 hosts permitidos (524288 hosts) operemos esto de la misma manera que antes dividamos 
+      los hosts permitidos por el numero de hosts permitidos por un octeto (256) 
+      </p>
+
+      <code>echo $((524288/256))</code>
+
+      <samp>Output: 2048</samp>
+
+      <p>Dado que es un numero mayor a 256 no cabria en 2 octetos por lo tanto volvemos a dividir 2048 / 256 y nos da como resultado 8, una vez obtenido este resultado podemos determinar que en el tercer octeto caben 8 iteraciones de 2048 por lo tanto nuestro resultado final seria 13.8.0.0, quiere decir que desde la 13.0.0.0 hasta la 13.7.255.255 caben los 524288 hosts, <strong class="red-m">sin embargo este no es el rango manejable para la direccion ip 13.13.13.13</strong>, entonces obtenemos el siguiente rango de direcciones ip que corresponden desde la 13.8.0.0 hasta la 13.15.255.255</p>
+
+
+      <h2>El calculo de maquina (binario)</h2>
+
+      <p>Nosotros los humanos por naturaleza entendemos mejor los numeros decimales que en binario, lo que hicimos anteriormente solo fueron las operaciones que nos ayudan a entender como lo haria una maquina si entendiera decimales, ahora, para entender como lo hace una maquina debemos entender que lo hace mediante una operatoria <strong>AND</strong> basicamente un operador AND opera dos entradas en la cual ambas tienen que ser 1, para que pueda validarse como verdadero o True, podemos traducirlo como la multiplicacion logica ya que 1 siempre debe multiplicarse por 1 para que su salida sea 1</p>
+
+      <table>
+        <caption>Operador Logico AND</caption>
+        <tr>
+          <th>valor</th>
+          <th>valor</th>
+          <th>salida</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </table>
+
+      <p>Una vez que sabemos que es un operador AND veamos como lo hace una maquina, sencillamente, para calcular el identificador de red (network id) y la red broadcast (broadcast adress) realiza una operacion AND entre la direccion ip y la mascara de subred, aquellos bits que den como salida 1 en la comparacion forman parte del identificador de red, por ejemplo (192.168.100.4/24, 255.255.255.0)</p>
+
+      
+          
+          <p><code>11000000.10101000.01100100.00000100 -> 192.168.100.4 (IP address)</code></p>
+          <p><code>11111111.11111111.11111111.00000000 -> 255.255.255.0 (subnet mask)</code></p>
+          <p><code>-----------------------------------</code><p>
+          <p><code>11000000.10101000.01100100.00000000 -> 192.168.100.0 -> (Network ID)</code></p>
+
+      <p>Si observamos detenidamente pudimos calcular el Network id tan solo con operaciones and, ¿pero como calculamos el Broadcast address o en su defecto la ultima direccion IP del rango?, para ello es tan facil como tornar en 1 el numero de bits que son inactivos por ejemplo si tenemos en este caso 24 bits activos tendremos 8 bits inactivos, precisamente tornaremos a 1 aquellos que sean inactivos partiendo desde la derecha en la direccion ip binaria</p>
+
+      <p><code>11000000.10101000.01100100.00000100 -> 192.168.100.4 (IP address)</code></p>
+          <p><code>11111111.11111111.11111111.00000000 -> 255.255.255.0 (subnet mask)</code></p>
+          <p><code>-----------------------------------</code><p>
+          <p><code>11000000.10101000.01100100.00000000 -> 192.168.100.0 (Network ID)</code></p>
+          <p><code>11000000.10101000.01100100.<strong style="color: red;">11111111</strong> -> 192.168.100.255 (Broadcast address)</code></p>
+
+
+        <p>asi es como de esta manera podemos conocer rapidamente cual es el rango de direcciones ip que manejamos en nuestra red o mediante un CIDR, si bien es un proceso muy tedioso contamos con esta manera facil y si aun queremos facilitar las cosas podemos utilizar una calculadora de CIDR en linea una pagina que podemos utilizar seria: <a href="https://www.ipaddressguide.com/cidr">ipaddressguide.com</a> sin embargo es bueno tener estos conceptos para saber como funciona un CIDR</p>
+
+
+
+      
+
+
+
+
+
+    
+  </body>
+</html>
+
