@@ -6,28 +6,36 @@ const products = [
   {
     id: 1,
     name: "Teclado Inalambrico Stylos",
+    status: "Stock",
+    specs: "Teclado en español inalambrico/alambrico para oficina, 2 baterias tipo AAA teclado, 1 bateria AA Mouse",
     price: 290,
     image: "https://www.dicotech.com.mx/productos/STPKTM3B/img_2.jpg",
   },
   {
     id: 2,
     name: "HDD Disco Duro Segate 500GB",
-    price: 560,
+    status: "Stock",
+    specs: "HDD 500 GB de 3.5'', 5900 RPM, 5 / 12 v alimentacion, sin cable SATA incluido", 
+    price: 450,
     image: "https://www.dicotech.com.mx/productos/ST500VM000-NP/img_1.jpg",
   },
   {
     id: 3,
-    name: "SSD ADATA SU630 2.5'' 240 GB",
-    price: 599,
-    image: "https://www.dicotech.com.mx/productos/ASU630SS-240GQ-R/img_1.jpg",
-  },
-  {
-    id: 4,
     name: "Limpiador de pantallas Vorago",
+    status: "Stock",
+    specs: "Limpiador de pantallas con microfibra 30x30 cm. Antiestatico de 150 ml.",
     price: 150,
     image: "https://www.dicotech.com.mx/productos/CLN-109/img_1.jpg",
   },
-  
+  {
+    id: 4,
+    name: "SSD ADATA SU630 2.5'' 240 GB",
+    status: "Agotado",
+    specs: "Lectura: 520 MB/s, Escritura 450 MB/s, Interfaz SATA, Memoria QLC 3D NAND",
+    price: 599,
+    image: "https://www.dicotech.com.mx/productos/ASU630SS-240GQ-R/img_1.jpg",
+  },
+
 ];
 
 export function Shop() {
@@ -65,12 +73,18 @@ export function Shop() {
         {products.map((product, index) => (
           <div className="flex flex-col" key={index}>
             <ProductCard product={product} />
-            <button
-              onClick={() => addToCart(product)}
-              className="cursor-pointer text-white px-4 py-2 my-3 rounded hover:bg-white hover:text-black transition"
-            >
-              Añadir al carrito
-            </button>
+            {product.status == "Stock" &&
+
+              <button
+                onClick={() => addToCart(product)}
+                className="cursor-pointer text-black bg-white px-4 py-2 my-3 rounded transition hover:text-white hover:bg-black"
+              >
+                Añadir al carrito
+              </button>
+
+            }
+
+
           </div>
 
         ))}
