@@ -62,13 +62,13 @@ export function Navbar(props) {
           </svg>
         </a>
 
-        <div className="items flex justify-center w-full">
+        <div className="items flex justify-center w-full md:justify-end md:mr-10">
           <div className="nav-items grid grid-cols-3 gap-4 
           md:flex md:flex-row md:justify-center" id="">
             {
               props.links.map((link, index) => (
                 <Link key={index} className="nav-link flex p-2 text-white
-                md:flex-row md:px-10" to={link.href}>
+                md:flex-row md:px-2" to={link.href}>
                   {link.name}
                 </Link>
               ))

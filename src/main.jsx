@@ -11,11 +11,13 @@ import { Projects } from './pages/Projects/Projects.jsx'
 import { Blog } from './pages/Blog/Blog.jsx'
 import { Contact } from './pages/Contact/Contact.jsx'
 import { Shop } from './pages/Shop/Shop.jsx'
+import { Services } from './pages/Services/Services.jsx'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const links = [
   {name: "Home", href: "/"},
   {name: "Shop", href: "/shop"},
+  {name: "Servicios", href: "/services"},
   {name: "Blog", href: "/blog"},
   {name: "Proyectos", href: "/projects"},
   {name: "Contacto", href: "/contact"},
@@ -31,6 +33,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/blog" element={<Blog />}/> 
       <Route path="/contact" element={<Contact />}/> 
       <Route path="/shop" element={<Shop />}/>
+      <Route path="/services" element={<Services />}/>
     </Routes>
   <FloatingWhatsApp 
     phoneNumber='+524772294425' 

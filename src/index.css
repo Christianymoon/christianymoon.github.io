@@ -24,12 +24,15 @@
 }
 
 
+
+
 main {
   height: 100vh;
   background-color: var(--dark);
 }
 
 #root {
+  background: var(--dark);
   display: flex;
   justify-content: center;
   align-items: center;
