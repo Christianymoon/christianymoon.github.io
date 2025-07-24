@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Visa from '../../assets/visa.webp'
 import ProductCard from '../../components/Product/ProductCard.jsx'
+import keyboardImage from '../../assets/products/stylos_keyboard.jpg'
+import hardDiskImage from '../../assets/products/seagate_hdd.jpg'
+import solidStateImage from '../../assets/products/adata_ssd.jpg'
+import screenCleanerImage from '../../assets/products/vorago_screen_cleaner.jpg'
 
 const products = [
   {
@@ -9,7 +13,7 @@ const products = [
     status: "Stock",
     specs: "Teclado en español inalambrico/alambrico para oficina, 2 baterias tipo AAA teclado, 1 bateria AA Mouse",
     price: 290,
-    image: "https://www.dicotech.com.mx/productos/STPKTM3B/img_2.jpg",
+    image: keyboardImage,
   },
   {
     id: 2,
@@ -17,7 +21,7 @@ const products = [
     status: "Stock",
     specs: "HDD 500 GB de 3.5'', 5900 RPM, 5 / 12 v alimentacion, sin cable SATA incluido", 
     price: 450,
-    image: "https://www.dicotech.com.mx/productos/ST500VM000-NP/img_1.jpg",
+    image: hardDiskImage,
   },
   {
     id: 3,
@@ -25,7 +29,7 @@ const products = [
     status: "Stock",
     specs: "Limpiador de pantallas con microfibra 30x30 cm. Antiestatico de 150 ml.",
     price: 150,
-    image: "https://www.dicotech.com.mx/productos/CLN-109/img_1.jpg",
+    image: screenCleanerImage,
   },
   {
     id: 4,
@@ -33,7 +37,7 @@ const products = [
     status: "Agotado",
     specs: "Lectura: 520 MB/s, Escritura 450 MB/s, Interfaz SATA, Memoria QLC 3D NAND",
     price: 599,
-    image: "https://www.dicotech.com.mx/productos/ASU630SS-240GQ-R/img_1.jpg",
+    image: solidStateImage,
   },
 
 ];

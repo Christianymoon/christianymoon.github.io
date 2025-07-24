@@ -1,6 +1,5 @@
-
-
 export default function ProductCard(product) {
+
   return (
     <div className="w-full">
       <div className="product-card-image">
@@ -13,7 +12,7 @@ export default function ProductCard(product) {
         </div> : <div className="status text-red-500">
           {product.product.status}
         </div>
-        
+
       )}
       {product.product.specs && (
         <p className="specs text-sm">{product.product.specs}</p>
