@@ -27,13 +27,13 @@ const ProjectCard = ({ title, githubUrl, projectUrl, media = [], platforms = [] 
           <div className="project-icons flex space-x-2 flex-row py-2">
             {githubUrl && (
               <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-white icon-link">
-                <i class="text-3xl bi bi-github"></i>
+                <i className="text-3xl bi bi-github"></i>
 
               </a>
             )}
             {projectUrl && (
               <a href={projectUrl} target="_blank" rel="noopener noreferrer" className="text-white icon-link">
-                <i class="text-3xl bi bi-link"></i>
+                <i className="text-3xl bi bi-link"></i>
               </a>
             )}
           </div>
@@ -45,10 +45,10 @@ const ProjectCard = ({ title, githubUrl, projectUrl, media = [], platforms = [] 
             {platforms && 
               <div className='text-xl space-x-5'>
                 <p className='text-base'>Disponible en: </p> 
-                {platforms.includes('windows') && <i class="bi bi-microsoft"></i>}
-                {platforms.includes('mac') && <i class="bi bi-android"></i>}
-                {platforms.includes('android') && <i class="bi bi-apple"></i>}
-                {platforms.includes('linux') && <i class="bi bi-tux"></i>}
+                {platforms.includes('windows') && <i className="bi bi-microsoft"></i>}
+                {platforms.includes('mac') && <i className="bi bi-android"></i>}
+                {platforms.includes('android') && <i className="bi bi-apple"></i>}
+                {platforms.includes('linux') && <i className="bi bi-tux"></i>}
               </div>
             }
         </div>
