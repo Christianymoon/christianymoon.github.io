@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
-import avatar from './assets/avatar.png'
+import avatar from './assets/gojo.jpg'
 
 
 import { Navbar } from './components/Navbar/Navbar.jsx'
@@ -15,36 +15,37 @@ import { Services } from './pages/Services/Services.jsx'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const links = [
-  {name: "Home", href: "/"},
-  {name: "Shop", href: "/shop"},
-  {name: "Servicios", href: "/services"},
-  {name: "Blog", href: "/blog"},
-  {name: "Proyectos", href: "/projects"},
-  {name: "Contacto", href: "/contact"},
-  
+  { name: "Home", href: "/" },
+  { name: "Shop", href: "/shop" },
+  { name: "Servicios", href: "/services" },
+  { name: "Blog", href: "/blog" },
+  { name: "Proyectos", href: "/projects" },
+  { name: "Contacto", href: "/contact" },
+
 ]
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter basename={'/'}>
-  <Navbar links={links}/>
+    <Navbar links={links} />
     <Routes>
       <Route path="/" element={<Hero />} />
       <Route path="/projects" element={<Projects />} />
-      <Route path="/blog" element={<Blog />}/> 
-      <Route path="/contact" element={<Contact />}/> 
-      <Route path="/shop" element={<Shop />}/>
-      <Route path="/services" element={<Services />}/>
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/services" element={<Services />} />
     </Routes>
-  <FloatingWhatsApp 
-    phoneNumber='+524772294425' 
-    accountName='Christian Vergara' 
-    notification={true}
-    chatMessage='Hola! con gusto te atendere, como puedo ayudarte? ☺️'
-    placeholder='Mensaje'
-    darkMode={true}
-    statusMessage='En Línea'
-    avatar={avatar}
-
-    />
+    <div className="fixed bottom-5 right-5 z-50">
+      <FloatingWhatsApp
+        phoneNumber='+524772294425'
+        accountName='Christian Vergara'
+        notification={true}
+        chatMessage='Hola! con gusto te atendere, como puedo ayudarte? ☺️'
+        placeholder='Mensaje'
+        darkMode={true}
+        statusMessage='En Línea'
+        avatar={avatar}
+      />
+    </div>
   </BrowserRouter>
 )
